@@ -1,0 +1,64 @@
+header{
+    .finance-navbar {
+        background-color: $primary-color;
+        box-shadow: 6px 7px 10px rgba(0, 0, 0, 0.1);
+        padding: 1rem 1.5rem;
+
+        .navbar-brand {
+            color: $white;
+            font-size: 1.4rem;
+            font-weight: 700;
+        }
+
+        .nav-link {
+            color: $very-light-grey;
+            font-size: 1.1rem;
+            position: relative;
+            transition: 0.3s;
+
+            &:hover {
+                color: $white;
+                transform: translateY(-1px);
+
+                &::after {
+                    width: 100%;
+                }
+            }
+
+            &::after {
+                background: $white;
+                bottom: -3px;
+                content: "";
+                height: 2px;
+                left: 0;
+                position: absolute;
+                transition: width 0.3s;
+                width: 0;
+            }
+        }
+
+        .navbar-toggler {
+            border: none;
+
+            .navbar-toggler-icon {
+                filter: invert(100%);
+            }
+        }
+
+        .navbar-profile {
+            margin-left: 1.5rem;
+
+            .profile-btn {
+                border-radius: 50%;
+                color: $white;
+                font-size: 1.2rem;
+                padding: 0.5rem;
+                transition: 0.2s;
+
+                &:hover {
+                    background-color: rgba(255,255,255,0.15);
+                }
+            }
+        }
+    }
+}

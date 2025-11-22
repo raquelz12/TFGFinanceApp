@@ -1,7 +1,7 @@
-@use "variables";
-@use "header";
-@use "footer";
-@use "home";
-@use "login";
-@use "pages/contact";
-@use "pages/dashboard";
+@import "base/colors";
+@import "layout/header";
+@import "layout/footer";
+@import "pages/home";
+@import "pages/login";
+@import "pages/contact";
+@import "pages/dashboard";

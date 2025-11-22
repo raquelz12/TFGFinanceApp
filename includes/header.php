@@ -4,8 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Finance App</title>
-    <link rel="stylesheet" href="/css/main.css">
-    <link rel="icon" type="image/x-icon" href="/css/favicon.ico">
+    <link rel="stylesheet" href="public\css\main.css">
     <link 
     href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" 
     rel="stylesheet"
@@ -16,32 +15,39 @@
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous">
     </script>
+    <script 
+    src="https://kit.fontawesome.com/c7ca284d32.js" 
+    crossorigin="anonymous">
+    </script>
 </head>
 <header>
-    <section class="navbar">
-        <nav class="navbar navbar-expand-lg">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="/index.php">Finance App</a>
-                <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button> -->
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link" href="/index.php">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/transactions.php">Transactions</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/reports.php">Reports</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/settings.php">Settings</a>
-                        </li>
-                    </ul>
-                </div>
+    <nav class="navbar navbar-expand-lg fixed-top finance-navbar">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.php">
+                <i class="fa-solid fa-money-bills"></i>
+                Finance App
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="mainNavbar">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="app_dashboard.php">Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="categories.php">Categorías</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="transactions.php">Transacciones</a>
+                    </li>
+                </ul>
             </div>
-        </nav>
-    </section>
+            <div class="navbar-profile">
+                <a href="profile.php" class="profile-btn">
+                    <i class="fa-solid fa-user"></i>
+                </a>
+            </div>
+        </div>
+    </nav>
 </header>
