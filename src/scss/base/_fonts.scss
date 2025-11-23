@@ -1,0 +1,10 @@
+$font-primary: 'Inter', sans-serif;
+$font-secondary: 'Roboto', sans-serif;
+
+@use "colors" as c;
+
+body {
+  font-family: $font-primary;
+  background-color: c.$white;
+  color: c.$dark-grey;
+}
