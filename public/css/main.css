@@ -1,27 +1,38 @@
+body {
+  font-family: "Inter", sans-serif;
+  background-color: #FFFFFF;
+  color: #1F2937;
+}
+
 header .finance-navbar {
   background-color: #3B82F6;
   box-shadow: 6px 7px 10px rgba(0, 0, 0, 0.1);
   padding: 1rem 1.5rem;
 }
-header .finance-navbar .navbar-brand {
+header .finance-navbar .container-fluid {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+header .finance-navbar .container-fluid .navbar-brand {
   color: #FFFFFF;
   font-size: 1.4rem;
   font-weight: 700;
 }
-header .finance-navbar .nav-link {
+header .finance-navbar .container-fluid .nav-link {
   color: #F3F4F6;
   font-size: 1.1rem;
   position: relative;
   transition: 0.3s;
 }
-header .finance-navbar .nav-link:hover {
+header .finance-navbar .container-fluid .nav-link:hover {
   color: #FFFFFF;
   transform: translateY(-1px);
 }
-header .finance-navbar .nav-link:hover::after {
+header .finance-navbar .container-fluid .nav-link:hover::after {
   width: 100%;
 }
-header .finance-navbar .nav-link::after {
+header .finance-navbar .container-fluid .nav-link::after {
   background: #FFFFFF;
   bottom: -3px;
   content: "";
@@ -31,24 +42,34 @@ header .finance-navbar .nav-link::after {
   transition: width 0.3s;
   width: 0;
 }
-header .finance-navbar .navbar-toggler {
+header .finance-navbar .container-fluid .navbar-toggler {
   border: none;
 }
-header .finance-navbar .navbar-toggler .navbar-toggler-icon {
+header .finance-navbar .container-fluid .navbar-toggler .navbar-toggler-icon {
   filter: invert(100%);
 }
-header .finance-navbar .navbar-profile {
-  margin-left: 1.5rem;
-}
-header .finance-navbar .navbar-profile .profile-btn {
+header .finance-navbar .container-fluid .navbar-add-transaction .add-transaction-btn {
   border-radius: 50%;
   color: #FFFFFF;
   font-size: 1.2rem;
   padding: 0.5rem;
   transition: 0.2s;
 }
-header .finance-navbar .navbar-profile .profile-btn:hover {
+header .finance-navbar .container-fluid .navbar-add-transaction .add-transaction-btn:hover {
   background-color: rgba(255, 255, 255, 0.15);
+}
+header .finance-navbar .container-fluid .navbar-profile .profile-btn {
+  border-radius: 50%;
+  color: #FFFFFF;
+  font-size: 1.2rem;
+  padding: 0.5rem;
+  transition: 0.2s;
+}
+header .finance-navbar .container-fluid .navbar-profile .profile-btn:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+}
+header .finance-navbar .container-fluid .navbar-collapse {
+  padding-right: 3rem;
 }
 
 .finance-footer {
@@ -90,6 +111,18 @@ header .finance-navbar .navbar-profile .profile-btn:hover {
 .finance-footer .footer-copy {
   font-size: 0.85rem;
   color: white;
+}
+
+main .dashboard-hero {
+  background-color: #3B82F6;
+  padding: 2rem;
+  border-radius: 8px;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  background-color: #F3F4F6;
+  color: #1F2937;
 }
 
 /*# sourceMappingURL=main.css.map */

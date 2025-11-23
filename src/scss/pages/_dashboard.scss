@@ -1,0 +1,9 @@
+@use "../base/colors" as c;
+
+main {
+    .dashboard-hero {
+        background-color: c.$primary-blue;
+        padding: 2rem;
+        border-radius: 8px;
+    }
+}

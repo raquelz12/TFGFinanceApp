@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Finance App</title>
-    <link rel="stylesheet" href="public\css\main.css">
+    <link rel="stylesheet" href="public/css/main.css">
     <link 
     href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" 
     rel="stylesheet"
@@ -21,12 +21,22 @@
     </script>
 </head>
 <header>
-    <nav class="navbar navbar-expand-lg fixed-top finance-navbar">
+    <nav class="navbar navbar-expand-lg sticky-top finance-navbar">
         <div class="container-fluid">
             <a class="navbar-brand" href="index.php">
                 <i class="fa-solid fa-money-bills"></i>
                 Finance App
             </a>
+            <div class="navbar-profile">
+                <a href="profile.php" class="profile-btn">
+                    <i class="fa-solid fa-user"></i>
+                </a>
+            </div>
+            <div class="navbar-add-transaction">
+                <a href="add_transaction.php" class="add-transaction-btn">
+                    <i class="fa-solid fa-plus"></i>
+                </a>
+            </div>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -42,11 +52,6 @@
                         <a class="nav-link" href="transactions.php">Transacciones</a>
                     </li>
                 </ul>
-            </div>
-            <div class="navbar-profile">
-                <a href="profile.php" class="profile-btn">
-                    <i class="fa-solid fa-user"></i>
-                </a>
             </div>
         </div>
     </nav>

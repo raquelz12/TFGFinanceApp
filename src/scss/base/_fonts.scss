@@ -1,15 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@600&display=swap');
+$font-primary: 'Inter', sans-serif;
+$font-secondary: 'Roboto', sans-serif;
+
+@use "colors" as c;
 
 body {
-  background-color: $white;
-  color: $dark-grey;
-  font-family: 'Inter', sans-serif;
-  font-size: 10px;
-  line-height: 1.6;
-}
-
-h1, h2, h3 {
-  font-family: 'Poppins', sans-serif;
-  font-weight: 600;
-  color: $dark-grey;
+  font-family: $font-primary;
+  background-color: c.$white;
+  color: c.$dark-grey;
 }
