@@ -114,9 +114,28 @@ header .finance-navbar .container-fluid .navbar-collapse {
 }
 
 main .dashboard-hero {
-  background-color: #3B82F6;
   padding: 2rem;
+}
+main .cards-section {
+  display: flex;
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+main .cards-section .card {
+  padding: 1.5rem;
   border-radius: 8px;
+  flex: 1;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+main .cards-section .card h3 {
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+  color: #1F2937;
+}
+main .cards-section .card p {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #3B82F6;
 }
 
 body {
