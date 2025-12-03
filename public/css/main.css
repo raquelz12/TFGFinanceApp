@@ -136,6 +136,7 @@ main .cards-section {
 main .card {
   background: #FFFFFF;
   border-radius: 18px;
+  border: none;
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
   flex: 1;
   max-width: 330px;
@@ -144,7 +145,7 @@ main .card {
 }
 main .card-body h2 {
   font-size: 1.1rem;
-  color: #555;
+  color: #6B7280;
 }
 main .amount {
   font-size: 2rem;
@@ -162,7 +163,7 @@ main .chart-section {
   padding: 0 2rem;
 }
 main .chart-card {
-  background: #fff;
+  background: #FFFFFF;
   padding: 2rem;
   border-radius: 18px;
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
@@ -178,8 +179,8 @@ main .transactions-header {
   align-items: center;
 }
 main .add-btn {
-  background: #4c6ef5;
-  color: #fff;
+  background: #3B82F6;
+  color: #FFFFFF;
   border: none;
   padding: 0.6rem 1rem;
   border-radius: 10px;
@@ -188,13 +189,13 @@ main .add-btn {
   transition: 0.2s;
 }
 main .add-btn:hover {
-  background: #3b5bdb;
+  background: #1E3A8A;
 }
 main .transaction-list {
   margin-top: 1.4rem;
 }
 main .transaction-item {
-  background: #fff;
+  background: #FFFFFF;
   padding: 1rem 1.2rem;
   border-radius: 12px;
   display: flex;
@@ -204,7 +205,7 @@ main .transaction-item {
   margin-bottom: 0.8rem;
 }
 main .t-cat {
-  color: #888;
+  color: #6B7280;
 }
 main .t-amount {
   font-weight: bold;
