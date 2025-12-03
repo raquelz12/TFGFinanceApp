@@ -2,8 +2,118 @@
 
 main {
     .dashboard-hero {
-        background-color: c.$primary-blue;
+        text-align: center;
+        padding: 2rem 0 1rem;
+    }
+
+    .dashboard-hero h1 {
+        font-size: 2.1rem;
+        font-weight: 700;
+        margin: 0;
+    }
+
+    .dashboard-hero p {
+        margin-top: .5rem;
+    }
+
+    .cards-section {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1.5rem;
+        justify-content: center;
+        margin: 0 2rem;
+        padding: 0 2rem;
+    }
+
+    .card {
+        background: c.$white;
+        border-radius: 18px;
+        box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+        flex: 1;
+        max-width: 330px;
+        min-width: 260px;
+        padding: 1.6rem;
+    }
+
+    .card-body h2 {
+        font-size: 1.1rem;
+        color: #555;
+    }
+
+    .amount {
+        font-size: 2rem;
+        font-weight: 700;
+        margin-top: .8rem;
+    }
+
+    .amount.negative {
+        color: #e74c3c;
+    }
+
+    .amount.positive {
+        color: #2ecc71;
+    }
+
+    .chart-section {
+        margin-top: 3rem;
+        padding: 0 2rem;
+    }
+
+    .chart-card {
+        background: #fff;
         padding: 2rem;
-        border-radius: 8px;
+        border-radius: 18px;
+        box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+        max-height: 350px;
+    }
+
+    .transactions-section {
+        margin-top: 3rem;
+        padding: 0 2rem 3rem;
+    }
+
+    .transactions-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .add-btn {
+        background: #4c6ef5;
+        color: #fff;
+        border: none;
+        padding: .6rem 1rem;
+        border-radius: 10px;
+        cursor: pointer;
+        font-size: .9rem;
+        transition: 0.2s;
+    }
+
+    .add-btn:hover {
+        background: #3b5bdb;
+    }
+
+    .transaction-list {
+        margin-top: 1.4rem;
+    }
+
+    .transaction-item {
+        background: #fff;
+        padding: 1rem 1.2rem;
+        border-radius: 12px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.07);
+        margin-bottom: .8rem;
+    }
+
+    .t-cat {
+        color: #888;
+    }
+
+    .t-amount {
+        font-weight: bold;
+        color: #e74c3c;
     }
 }

@@ -19,6 +19,8 @@
     src="https://kit.fontawesome.com/c7ca284d32.js" 
     crossorigin="anonymous">
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="public/js/dashboard.js"></script>
 </head>
 <header>
     <nav class="navbar navbar-expand-lg sticky-top finance-navbar">
