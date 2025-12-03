@@ -79,21 +79,6 @@ main {
         align-items: center;
     }
 
-    .add-btn {
-        background: c.$primary-color;
-        color: c.$white;
-        border: none;
-        padding: .6rem 1rem;
-        border-radius: 10px;
-        cursor: pointer;
-        font-size: .9rem;
-        transition: 0.2s;
-    }
-
-    .add-btn:hover {
-        background: c.$dark-blue;
-    }
-
     .transaction-list {
         margin-top: 1.4rem;
     }

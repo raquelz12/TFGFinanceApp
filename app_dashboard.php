@@ -34,7 +34,7 @@
     <section class="transactions-section">
         <div class="transactions-header">
             <h2>Últimos gastos</h2>
-            <button class="add-btn">+ Añadir gasto</button>
+            <button class="button-app">+ Añadir gasto</button>
         </div>
         <div class="transaction-list">
             <div class="transaction-item">

@@ -25,12 +25,12 @@
 <header>
     <nav class="navbar navbar-expand-lg sticky-top finance-navbar">
         <div class="container-fluid">
-            <a class="navbar-brand" href="index.php">
+            <a class="navbar-brand" href="app_dashboard.php">
                 <i class="fa-solid fa-money-bills"></i>
                 Finance App
             </a>
             <div class="navbar-profile">
-                <a href="profile.php" class="profile-btn" title="Mi Perfil">
+                <a href="login.php" class="profile-btn" title="Mi Perfil">
                     <i class="fa-solid fa-user"></i>
                 </a>
             </div>

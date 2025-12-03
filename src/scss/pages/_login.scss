@@ -1,0 +1,48 @@
+@use "../base/colors" as c;
+
+main {
+    .login-hero {
+        text-align: center;
+        padding: 3rem 0 2rem;
+    }
+
+    .login-hero h1 {
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin: 0;
+    }
+
+    .login-hero p {
+        margin-top: .5rem;
+        color: c.$dark-grey;
+    }
+
+    .login-form {
+        background: c.$white;
+        border-radius: 12px;
+        box-shadow: 0 4px 14px rgba(0,0,0,0.1);
+        max-width: 400px;
+        margin: 2rem auto;
+        padding: 2rem;
+    }
+
+    .login-form label {
+        display: block;
+        font-weight: 600;
+        margin-bottom: .5rem;
+    }
+
+    .login-form input {
+        width: 100%;
+        padding: .8rem;
+        margin-bottom: 1.5rem;
+        border: 1px solid c.$light-grey;
+        border-radius: 6px;
+    }
+
+    .register-link {
+       display: flex;
+       justify-content: center;
+       margin-bottom: 1rem;
+    }
+}

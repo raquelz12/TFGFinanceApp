@@ -6,6 +6,7 @@
 @use "pages/login" as login;
 @use "pages/contact" as contact;
 @use "pages/dashboard" as dashboard;
+@use "components/buttons" as buttons;
 
 body {
   font-family: f.$font-primary;

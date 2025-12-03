@@ -1,0 +1,16 @@
+@use "../base/colors" as c;
+
+.button-app {
+    background: c.$primary-color;
+    border-radius: 10px;
+    border: none;
+    color: c.$white;
+    cursor: pointer;
+    font-size: .9rem;
+    padding: .6rem 1rem;
+    transition: 0.2s;
+}
+
+.button-app:hover {
+    background: c.$dark-blue;
+}
