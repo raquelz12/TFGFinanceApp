@@ -28,6 +28,7 @@ main {
     .card {
         background: c.$white;
         border-radius: 18px;
+        border: none;
         box-shadow: 0 4px 14px rgba(0,0,0,0.08);
         flex: 1;
         max-width: 330px;
@@ -37,7 +38,7 @@ main {
 
     .card-body h2 {
         font-size: 1.1rem;
-        color: #555;
+        color: c.$light-grey;
     }
 
     .amount {
@@ -47,11 +48,11 @@ main {
     }
 
     .amount.negative {
-        color: #e74c3c;
+        color: c.$red;
     }
 
     .amount.positive {
-        color: #2ecc71;
+        color: c.$green;
     }
 
     .chart-section {
@@ -60,7 +61,7 @@ main {
     }
 
     .chart-card {
-        background: #fff;
+        background: c.$white;
         padding: 2rem;
         border-radius: 18px;
         box-shadow: 0 4px 14px rgba(0,0,0,0.08);
@@ -79,8 +80,8 @@ main {
     }
 
     .add-btn {
-        background: #4c6ef5;
-        color: #fff;
+        background: c.$primary-color;
+        color: c.$white;
         border: none;
         padding: .6rem 1rem;
         border-radius: 10px;
@@ -90,7 +91,7 @@ main {
     }
 
     .add-btn:hover {
-        background: #3b5bdb;
+        background: c.$dark-blue;
     }
 
     .transaction-list {
@@ -98,7 +99,7 @@ main {
     }
 
     .transaction-item {
-        background: #fff;
+        background: c.$white;
         padding: 1rem 1.2rem;
         border-radius: 12px;
         display: flex;
@@ -109,11 +110,11 @@ main {
     }
 
     .t-cat {
-        color: #888;
+        color: c.$light-grey;
     }
 
     .t-amount {
         font-weight: bold;
-        color: #e74c3c;
+        color: c.$red;
     }
 }

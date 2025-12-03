@@ -30,12 +30,12 @@
                 Finance App
             </a>
             <div class="navbar-profile">
-                <a href="profile.php" class="profile-btn">
+                <a href="profile.php" class="profile-btn" title="Mi Perfil">
                     <i class="fa-solid fa-user"></i>
                 </a>
             </div>
             <div class="navbar-add-transaction">
-                <a href="add_transaction.php" class="add-transaction-btn">
+                <a href="add_transaction.php" class="add-transaction-btn" title="Añadir Transacción">
                     <i class="fa-solid fa-plus"></i>
                 </a>
             </div>
