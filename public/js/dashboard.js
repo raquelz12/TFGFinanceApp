@@ -1,11 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
     const ctx = document.getElementById('gastosChart');
 
-    if (!ctx) {
-        console.error("❌ No se encontró el canvas #gastosChart");
-        return;
-    }
-
     new Chart(ctx, {
         type: 'doughnut',
         data: {
