@@ -114,9 +114,101 @@ header .finance-navbar .container-fluid .navbar-collapse {
 }
 
 main .dashboard-hero {
-  background-color: #3B82F6;
+  text-align: center;
+  padding: 2rem 0 1rem;
+}
+main .dashboard-hero h1 {
+  font-size: 2.1rem;
+  font-weight: 700;
+  margin: 0;
+}
+main .dashboard-hero p {
+  margin-top: 0.5rem;
+}
+main .cards-section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
+  margin: 0 2rem;
+  padding: 0 2rem;
+}
+main .card {
+  background: #FFFFFF;
+  border-radius: 18px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+  flex: 1;
+  max-width: 330px;
+  min-width: 260px;
+  padding: 1.6rem;
+}
+main .card-body h2 {
+  font-size: 1.1rem;
+  color: #555;
+}
+main .amount {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-top: 0.8rem;
+}
+main .amount.negative {
+  color: #e74c3c;
+}
+main .amount.positive {
+  color: #2ecc71;
+}
+main .chart-section {
+  margin-top: 3rem;
+  padding: 0 2rem;
+}
+main .chart-card {
+  background: #fff;
   padding: 2rem;
-  border-radius: 8px;
+  border-radius: 18px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+  max-height: 350px;
+}
+main .transactions-section {
+  margin-top: 3rem;
+  padding: 0 2rem 3rem;
+}
+main .transactions-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+main .add-btn {
+  background: #4c6ef5;
+  color: #fff;
+  border: none;
+  padding: 0.6rem 1rem;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: 0.2s;
+}
+main .add-btn:hover {
+  background: #3b5bdb;
+}
+main .transaction-list {
+  margin-top: 1.4rem;
+}
+main .transaction-item {
+  background: #fff;
+  padding: 1rem 1.2rem;
+  border-radius: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.07);
+  margin-bottom: 0.8rem;
+}
+main .t-cat {
+  color: #888;
+}
+main .t-amount {
+  font-weight: bold;
+  color: #e74c3c;
 }
 
 body {
