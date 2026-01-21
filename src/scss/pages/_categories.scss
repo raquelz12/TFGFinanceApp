@@ -11,6 +11,30 @@
     }
 
     .category-progress {
+        .card-header {
+            align-items: center;
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+
+            .edit-category-button {
+                aspect-ratio: 1/1;
+                background: none;
+                border-radius: 50%;
+                border: none;
+                font-size: 1.2rem;
+                transition: 0.2s;
+
+                &:hover {
+                    background-color: color-mix(
+                        in srgb,
+                        c.$primary-blue 15%,
+                        transparent
+                    );
+                }
+            }
+        }
+
         background: c.$white;
         border-radius: 18px;
         border: none;

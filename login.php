@@ -1,6 +1,6 @@
 <?php include 'includes/header.php'; ?>
 <main>
-    <div class="container">
+    <div class="container login-container">
         <div class="login-hero">
             <h1>Iniciar Sesión</h1>
         </div>

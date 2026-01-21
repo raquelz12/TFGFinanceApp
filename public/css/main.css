@@ -113,6 +113,10 @@ header .finance-navbar .container-fluid .navbar-collapse {
   color: white;
 }
 
+main .login-container {
+  height: 45rem;
+  align-content: center;
+}
 main .login-hero {
   text-align: center;
   padding: 3rem 0 2rem;
@@ -296,6 +300,23 @@ main .register-link {
 .categories-section .categories {
   display: flex;
   flex-wrap: wrap;
+}
+.categories-section .category-progress .card-header {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+.categories-section .category-progress .card-header .edit-category-button {
+  aspect-ratio: 1/1;
+  background: none;
+  border-radius: 50%;
+  border: none;
+  font-size: 1.2rem;
+  transition: 0.2s;
+}
+.categories-section .category-progress .card-header .edit-category-button:hover {
+  background-color: color-mix(in srgb, #3B82F6 15%, transparent);
 }
 .categories-section .category-progress {
   background: #FFFFFF;

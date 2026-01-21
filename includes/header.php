@@ -35,7 +35,7 @@
                 </a>
             </div>
             <div class="navbar-add-transaction">
-                <a href="add_transaction.php" class="add-transaction-btn" title="Añadir Gasto" data-bs-toggle="modal" data-bs-target="#NavBarModal">
+                <a href="add_transaction.php" class="add-transaction-btn" title="Añadir Gasto" data-bs-toggle="modal" data-bs-target="#Modal">
                     <i class="fa-solid fa-plus"></i>
                 </a>
             </div>
@@ -51,7 +51,10 @@
                         <a class="nav-link" href="categories.php">Categorías</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="transactions.php">Transacciones</a>
+                        <a class="nav-link" href="statistics.php">Estadísticas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="objectives.php">Objetivos</a>
                     </li>
                 </ul>
             </div>
