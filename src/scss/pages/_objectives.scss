@@ -1,0 +1,74 @@
+@use "../base/colors" as c;
+
+.objectives-page {
+  padding: 0 2rem;
+  margin-top: 2rem;
+  min-height: 600px;
+}
+
+.objectives-hero {
+  margin-bottom: 3rem;
+  
+  h1 {
+    font-size: 2.1rem;
+    font-weight: 700;
+  }
+  
+  p {
+    margin-top: .5rem;
+  }
+}
+
+.objectives-actions {
+  display: flex;
+  margin-bottom: 2rem;
+}
+
+.objectives-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.objective-card {
+    background: c.$white;
+    border-radius: 18px;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+    padding: 1.6rem;
+    width: 320px;
+    
+    h2 {
+        font-size: 1.2rem;
+        margin-bottom: .5rem;
+    }
+    
+    .objective-amount {
+        font-size: 1.4rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+    }
+    
+    .progress {
+        height: 10px;
+        border-radius: 10px;
+        background: #e9ecef;
+        overflow: hidden;
+        margin-bottom: 1rem;
+        
+        .progress-bar {
+            height: 100%;
+            background: c.$green;
+        }
+    }
+    
+    .objective-date {
+        font-size: .9rem;
+        color: c.$light-grey;
+        margin-bottom: 1rem;
+    }
+    
+    .objective-actions {
+        display: flex;
+        gap: .5rem;
+    }
+}

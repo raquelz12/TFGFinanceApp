@@ -1,7 +1,10 @@
 <?php include 'includes/header.php'; ?>
-<main class="app-main">
+<main class="categories-page">
+    <section class="categories-hero">
+        <h1>Gestiona tus categorías de gasto</h1>
+        <p>Establece límites y controla tus gastos mensuales</p>
+    </section>
     <section class="categories-section">
-        <h2>Categorías de gastos</h2>
         <div class="categories">
             <div class="category-progress">
                 <div class="card-header">
@@ -80,6 +83,11 @@
                     <div class="progress-bar-fill" data-amount="50" data-budget="100"></div>
                 </div>
                 <p class="progress-info">50€ / 100€</p>
+            </div>
+            <div class="add-category-button-container">
+                <button class="button-app add-category-button" onclick="window.location.href='add_category.php'" title="Añadir categoría">
+                    <i class="fa-solid fa-plus"></i>
+                </button>
             </div>
         </div>
     </section>

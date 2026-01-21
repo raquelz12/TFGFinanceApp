@@ -1,4 +1,5 @@
 <?php include 'includes/header.php'; ?>
+
 <main>
     <div class="container">
         <div class="register-hero">
@@ -28,4 +29,5 @@
         </div>
     </div>
 </main>
+
 <?php include 'includes/footer.php'; ?>

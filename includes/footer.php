@@ -1,4 +1,4 @@
-        <footer class="finance-footer mt-auto">
+        <footer class="finance-footer">
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-md-6 text-center text-md-start mb-2 mb-md-0">

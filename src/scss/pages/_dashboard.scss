@@ -2,8 +2,8 @@
 
 main {
     .dashboard-hero {
-        text-align: center;
-        padding: 2rem 0 1rem;
+        padding: 0 2rem;
+        margin-top: 3rem;
     }
 
     .dashboard-hero h1 {
@@ -34,6 +34,17 @@ main {
         max-width: 330px;
         min-width: 260px;
         padding: 1.6rem;
+
+        h2 {
+            font-size: 1.1rem;
+            color: c.$light-grey;
+        }
+
+        p {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-top: 0.8rem;
+        }
     }
 
     .card-body h2 {
@@ -62,15 +73,37 @@ main {
 
     .chart-card {
         background: c.$white;
-        padding: 2rem;
         border-radius: 18px;
         box-shadow: 0 4px 14px rgba(0,0,0,0.08);
-        max-height: 350px;
+        padding: 2rem;
+    }
+
+    .chart-wrapper {
+        align-items: center;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: flex-start;
+    }
+
+    @media (min-width: 1440px) {
+        .chart-wrapper {
+            flex-wrap: nowrap;
+        }
+    }
+
+    .chart-stats {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 15px;
+        justify-content: center;
     }
 
     .transactions-section {
         margin-top: 3rem;
         padding: 0 2rem 3rem;
+        margin-bottom: 5rem;
     }
 
     .transactions-header {
