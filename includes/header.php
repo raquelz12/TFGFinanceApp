@@ -20,7 +20,7 @@
     crossorigin="anonymous">
     </script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="public/js/dashboard.js"></script>
+    <script type="module" src="public/js/app.js"></script>
 </head>
 <header>
     <nav class="navbar navbar-expand-lg sticky-top finance-navbar">
@@ -35,7 +35,7 @@
                 </a>
             </div>
             <div class="navbar-add-transaction">
-                <a href="add_transaction.php" class="add-transaction-btn" title="Añadir Transacción">
+                <a href="add_transaction.php" class="add-transaction-btn" title="Añadir Gasto" data-bs-toggle="modal" data-bs-target="#NavBarModal">
                     <i class="fa-solid fa-plus"></i>
                 </a>
             </div>
@@ -58,3 +58,28 @@
         </div>
     </nav>
 </header>
+<div class="modal fade" id="NavBarModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5">Añade un gasto</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <select class="form-control mb-2">
+                    <option>Alimentación</option>
+                    <option>Transporte</option>
+                    <option>Ocio</option>
+                    <option>Salud</option>
+                    <option>Casa</option>
+                    <option>Otros</option>
+                </select>
+                <input type="number" placeholder="Cantidad (€)" class="form-control mb-2">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="button-app" data-bs-dismiss="modal">Cerrar</button>
+                <button type="button" class="button-app" data-bs-dismiss="modal">Guardar gasto</button>
+            </div>
+        </div>
+    </div>
+</div>

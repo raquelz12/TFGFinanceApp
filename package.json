@@ -13,5 +13,10 @@
   "type": "commonjs",
   "devDependencies": {
     "sass": "^1.94.2"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^5.2.1",
+    "mysql2": "^3.16.0"
   }
 }
