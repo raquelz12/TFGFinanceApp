@@ -15,6 +15,20 @@
     margin-top: .5rem;
 }
 
+.categories-message {
+    padding: 0 2rem;
+    margin-bottom: 1rem;
+    color: c.$red;
+    font-weight: 600;
+}
+
+.categories-actions {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    margin-left: 2rem;
+}
+
 .categories-section {
     padding: 0 2rem;
     min-height: 750px;
@@ -27,6 +41,10 @@
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: flex-start;
+
+        @media (max-width: 700px) {
+            flex-direction: column;
+        }   
     }
     
     .category-progress {
@@ -36,7 +54,7 @@
             justify-content: space-between;
             margin-bottom: 1rem;
             
-            .edit-category-button {
+            .category-button {
                 aspect-ratio: 1/1;
                 background: none;
                 border-radius: 50%;

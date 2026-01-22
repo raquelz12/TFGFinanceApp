@@ -3,12 +3,10 @@
 .objectives-page {
   padding: 0 2rem;
   margin-top: 2rem;
-  min-height: 600px;
+  min-height: 700px;
 }
 
 .objectives-hero {
-  margin-bottom: 3rem;
-  
   h1 {
     font-size: 2.1rem;
     font-weight: 700;
@@ -21,13 +19,25 @@
 
 .objectives-actions {
   display: flex;
+  gap: 1rem;
   margin-bottom: 2rem;
 }
 
 .objectives-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1.5rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    
+    .objectives {
+        align-items: center;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+
+        @media (max-width: 700px) {
+            flex-direction: column;
+        }   
+    }
 }
 
 .objective-card {
@@ -70,5 +80,19 @@
     .objective-actions {
         display: flex;
         gap: .5rem;
+    }
+}
+
+.add-objective-button-container {
+    display: flex;
+    justify-content: center;
+    margin: 2rem;
+    
+    .add-objective-button {
+        aspect-ratio: 1/1;
+        width: 60px;
+        font-size: 1.5rem;
+        border-radius: 50%;
+        padding: 0;
     }
 }

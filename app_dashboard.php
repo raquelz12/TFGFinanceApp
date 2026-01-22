@@ -1,27 +1,102 @@
-<?php include 'includes/header.php'; ?>
+<?php 
+session_start();
+require 'backend/config/connection.php';
+if (!isset($_SESSION["user_id"])) {
+    header("Location: login.php");
+    exit;
+}
+
+$user_id = $_SESSION["user_id"];
+$day   = date('d');
+$month = date('m');
+$year  = date('Y');
+
+$stmt = $pdo->prepare("
+    SELECT SUM(amount) AS total
+    FROM expenses
+    WHERE user_id = ?
+      AND MONTH(created_at) = ?
+      AND YEAR(created_at) = ?
+");
+$stmt->execute([$user_id, $month, $year]);
+$total_month = $stmt->fetchColumn();
+$total_month = $total_month ?: 0;
+$average_daily = $total_month / $day;
+
+$stmt = $pdo->prepare("
+    SELECT e.name, e.amount, c.name AS category
+    FROM expenses e
+    JOIN categories c ON e.category_id = c.id
+    WHERE e.user_id = ?
+    ORDER BY e.created_at DESC
+    LIMIT 3
+");
+$stmt->execute([$user_id]);
+$recent_expenses = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+$stmt = $pdo->prepare("
+    SELECT 
+        COALESCE(SUM(c.amount),0) - COALESCE(SUM(e.total_spent),0) AS estimated_saving
+    FROM categories c
+    LEFT JOIN (
+        SELECT category_id, SUM(amount) AS total_spent
+        FROM expenses
+        WHERE user_id = ?
+        GROUP BY category_id
+    ) e ON c.id = e.category_id
+    WHERE c.user_id = ?
+");
+$stmt->execute([$user_id, $user_id]);
+$estimated_saving = $stmt->fetchColumn();
+
+include 'includes/header.php'; ?>
 
 <main class="dashboard">
     <section class="dashboard-hero">
-        <h1>Tu Panel de Gastos</h1>
+        <?php echo "<h1>Bienvenid@, " . htmlspecialchars($_SESSION["user_name"]) . "!</h1>"; ?>
         <p>Visualiza y controla tus gastos del mes</p>
     </section>
     <section class="cards-section">
         <div class="card">
             <div class="card-body">
                 <h2>Gasto total del mes</h2>
-                <p class="amount negative">830€</p>
+                <?php if (!isset($_SESSION['blur_amount']) || $_SESSION['blur_amount'] === false) : ?>
+                    <p class="amount">
+                        <?php
+                        echo number_format($total_month, 2) 
+                        ?>€
+                    </p>
+                    <?php else : ?>
+                    <span class="blurred">****€</span>
+                    <?php endif; ?>
             </div>
         </div>
         <div class="card">
             <div class="card-body">
                 <h2>Gasto promedio diario</h2>
-                <p class="amount">27€</p>
+                <?php if (!isset($_SESSION['blur_amount']) || $_SESSION['blur_amount'] === false) : ?>
+                    <p class="amount">
+                        <?php
+                        echo number_format($average_daily, 2) 
+                        ?>€
+                    </p>
+                <?php else : ?>
+                    <span class="blurred">****€</span>
+                <?php endif; ?>
             </div>
         </div>
         <div class="card">
             <div class="card-body">
                 <h2>Ahorro estimado</h2>
-                <p class="amount positive">420€</p>
+                <?php if (!isset($_SESSION['blur_amount']) || $_SESSION['blur_amount'] === false) : ?>
+                    <p class="amount">
+                        <?php
+                        echo number_format($estimated_saving, 2) 
+                        ?>€
+                    </p>
+                <?php else : ?>
+                    <span class="blurred">****€</span>
+                <?php endif; ?>
             </div>
         </div>
     </section>
@@ -58,26 +133,18 @@
     <section class="transactions-section">
         <div class="transactions-header">
             <h2>Últimos gastos</h2>
-            <button type="button" class="button-app" data-bs-toggle="modal" data-bs-target="#ModalAddTransaction">
+            <button type="button" class="button-app" data-bs-toggle="modal" data-bs-target="#ModalAddExpense">
                 + Añadir Gasto
             </button>
         </div>
         <div class="transaction-list">
+            <?php foreach ($recent_expenses as $exp): ?>
             <div class="transaction-item">
-                <span class="t-desc">Supermercado</span>
-                <span class="t-cat">Alimentación</span>
-                <span class="t-amount">-42€</span>
+                <span><?= htmlspecialchars($exp['name']) ?></span>
+                <span><?= htmlspecialchars($exp['category']) ?></span>
+                <span><?= number_format($exp['amount'],2,',','.') ?> €</span>
             </div>
-            <div class="transaction-item">
-                <span class="t-desc">Autobús</span>
-                <span class="t-cat">Transporte</span>
-                <span class="t-amount">-2.80€</span>
-            </div>
-            <div class="transaction-item">
-                <span class="t-desc">Cena con amigos</span>
-                <span class="t-cat">Ocio</span>
-                <span class="t-amount">-18€</span>
-            </div>
+        <?php endforeach; ?>
         </div>
     </section>
 </main>

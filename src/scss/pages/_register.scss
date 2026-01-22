@@ -12,6 +12,17 @@ main {
         margin: 0;
     }
 
+    .register-message {
+        text-align: center;
+        margin-bottom: 1rem;
+        color: c.$red;
+        font-weight: 600;
+
+        li {
+            list-style: none;
+        }
+    }
+
     .register-form {
         background: c.$white;
         border-radius: 12px;

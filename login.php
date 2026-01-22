@@ -1,18 +1,28 @@
-<?php include 'includes/header.php'; ?>
+<?php 
+session_start();
+include 'includes/header.php'; ?>
 
 <main>
     <div class="container login-container">
         <div class="login-hero">
             <h1>Iniciar Sesión</h1>
         </div>
-        <form class="login-form" action="authenticate.php" method="POST">
+        <div class="login-message">
+            <?php
+            if (isset($_SESSION['message'])) {
+                echo '<p class="message">' . htmlspecialchars($_SESSION['message']) . '</p>';
+                unset($_SESSION['message']);
+            }
+            ?>
+        </div>
+        <form class="login-form" action="backend/authentication/login_action.php" method="POST">
             <div class="form-group">
-                <label for="username">Usuario:</label>
-                <input type="text" id="username" name="username" required>
+                <label for="email">Email:</label>
+                <input type="text" id="email" name="email" placeholder="usuario@email.com" required>
             </div>
             <div class="form-group">
                 <label for="password">Contraseña:</label>
-                <input type="password" id="password" name="password" required>
+                <input type="password" id="password" name="password" placeholder="********" required>
             </div>
             <button class="button-app" type="submit">Iniciar Sesión</button>
         </form>

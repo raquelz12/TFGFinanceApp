@@ -22,6 +22,7 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script type="module" src="public/js/app.js"></script>
 </head>
+<?php include 'modals/add_expense_modal.php'; ?>
 <body>
     <header class="sticky-top">
         <nav class="navbar navbar-expand-lg finance-navbar">
@@ -31,15 +32,23 @@
                     Finance App
                 </a>
                 <div class="navbar-profile">
-                    <a href="login.php" class="profile-btn" title="Mi Perfil">
+                    <?php if (isset($_SESSION['user_name'])): ?>
+                    <a href="profile.php" class="profile-btn" title="Mi Perfil">
                         <i class="fa-solid fa-user"></i>
                     </a>
+                    <?php else: ?>
+                    <a href="login.php" class="profile-btn" title="Iniciar Sesión">
+                        <i class="fa-solid fa-user"></i>
+                    </a>
+                    <?php endif; ?>
                 </div>
+                <?php if (isset($_SESSION['user_id'])): ?>
                 <div class="navbar-add-transaction">
-                    <a href="add_transaction.php" class="add-transaction-btn" title="Añadir Gasto" data-bs-toggle="modal" data-bs-target="#ModalAddTransaction">
+                    <a class="add-transaction-btn" title="Añadir Gasto" data-bs-toggle="modal" data-bs-target="#ModalAddExpense">
                         <i class="fa-solid fa-plus"></i>
                     </a>
                 </div>
+                <?php endif; ?>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -59,32 +68,3 @@
             </div>
         </nav>
     </header>
-    <div class="modal fade" id="ModalAddTransaction" tabindex="-1" aria-labelledby="ModalAddTransaction" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="ModalAddTransaction">Añade un gasto</h1>
-                    <button type="button button-app" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <h5>Descripción</h5>
-                    <input type="text" placeholder="Descripción del gasto" class="form-control mb-2">
-                    <h5>Categoría</h5>
-                    <select class="form-control mb-2">
-                        <option>Alimentación</option>
-                        <option>Transporte</option>
-                        <option>Ocio</option>
-                        <option>Salud</option>
-                        <option>Casa</option>
-                        <option>Otros</option>
-                    </select>
-                    <h5>Cantidad</h5>
-                    <input type="number" placeholder="€" class="form-control mb-2">
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="button-app" data-bs-dismiss="modal">Cerrar</button>
-                    <button type="button" class="button-app" data-bs-dismiss="modal">Guardar gasto</button>
-                </div>
-            </div>
-        </div>
-    </div>

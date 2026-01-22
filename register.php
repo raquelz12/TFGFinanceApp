@@ -1,26 +1,40 @@
-<?php include 'includes/header.php'; ?>
+<?php 
+session_start();
+$errors = $_SESSION["register_errors"] ?? [];
+$old    = $_SESSION["old_data"] ?? [];
+unset($_SESSION["register_errors"], $_SESSION["old_data"]);
+include 'includes/header.php'; ?>
 
 <main>
-    <div class="container">
+    <div class="container register-container">
         <div class="register-hero">
             <h1>Registrarse</h1>
         </div>
-        <form class="register-form" action="authenticate.php" method="POST">
+        <?php if ($errors): ?>
+        <div class="register-message">
+            <ul class="mb-0">
+                <?php foreach ($errors as $e): ?>
+                <li><?= htmlspecialchars($e) ?></li>
+                <?php endforeach ?>
+            </ul>
+        </div>
+        <?php endif ?>
+        <form class="register-form" action="backend/authentication/register_action.php" method="POST">
             <div class="form-group">
-                <label for="username">Usuario:</label>
-                <input type="text" id="username" name="username" required>
+                <label for="name">Nombre:</label>
+                <input type="text" id="name" name="name" placeholder="Jhon Doe" required>
             </div>
             <div class="form-group">
                 <label for="email">Correo Electrónico:</label>
-                <input type="email" id="email" name="email" required>
+                <input type="email" id="email" name="email" placeholder="usuario@email.com" required>
             </div>
             <div class="form-group">
                 <label for="password">Contraseña:</label>
-                <input type="password" id="password" name="password" required>
+                <input type="password" id="password" name="password" placeholder="********" required>
             </div>
             <div class="form-group">
                 <label for="confirm_password">Confirmar Contraseña:</label>
-                <input type="password" id="confirm_password" name="confirm_password" required>
+                <input type="password" id="confirm_password" name="confirm_password" placeholder="********" required>
             </div>
             <button class="button-app" type="submit">Registrarse</button>
         </form>

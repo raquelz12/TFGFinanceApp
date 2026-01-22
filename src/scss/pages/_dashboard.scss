@@ -136,3 +136,9 @@ main {
         color: c.$red;
     }
 }
+
+.blurred {
+  filter: blur(5px);
+  pointer-events: none;
+  user-select: none;
+}
