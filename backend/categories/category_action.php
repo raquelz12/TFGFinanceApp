@@ -14,6 +14,12 @@ if ($action === 'insert') {
     $category_id = (int) $_POST['category_id'];
     $amount = (float) $_POST['amount'];
 
+    if ($category_id <= 0 || $amount <= 0) {
+        $_SESSION['message'] = 'Datos inválidos para la categoría';
+        header('Location: ../../categories.php');
+        exit;
+    }
+
     $stmt = $pdo->prepare("
         INSERT INTO categories (user_id, name, amount, completed_amount)
         SELECT ?, name, ?, 0
@@ -28,6 +34,12 @@ if ($action === 'insert') {
 if ($action === 'update') {
     $cat_id = (int) $_POST['id'];
     $amount = (float) $_POST['amount'];
+
+    if ($amount <= 0) {
+        $_SESSION['message'] = 'Cantidad inválida';
+        header('Location: ../../categories.php');
+        exit;
+    }
 
     $stmt = $pdo->prepare("
         UPDATE categories

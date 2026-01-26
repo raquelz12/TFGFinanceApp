@@ -72,26 +72,57 @@ include 'includes/header.php';
                     </button>
                 </div>
                 <div class="progress-bar-container">
-                    <div class="progress-bar-fill" data-amount="<?= $dataAmount ?>" data-budget="<?= $dataBudget ?>" style="width: <?= ($dataBudget>0) ? ($dataAmount/$dataBudget*100) : 0 ?>%"></div>
+                    <div 
+                        class="progress-bar-fill" 
+                        data-amount="<?= $dataAmount ?>" 
+                        data-budget="<?= $dataBudget ?>" 
+                        style="width: <?= ($dataBudget>0) ? ($dataAmount/$dataBudget*100) : 0 ?>%"
+                    >
+                    </div>
                 </div>
                 <p class="progress-info"><?= $dataAmount ?>€ / <?= $dataBudget ?>€</p>
             </div>
             <div class="modal fade" id="editLimitModal<?= $cat['id'] ?>" tabindex="-1">
                 <div class="modal-dialog">
                     <form action="backend/categories/category_action.php" method="POST">
-                        <input type="hidden" name="action" value="update">
-                        <input type="hidden" name="id" value="<?= $cat['id'] ?>">
+                        <input 
+                            type="hidden" 
+                            name="action" 
+                            value="update"
+                        >
+                        <input 
+                            type="hidden" 
+                            name="id" 
+                            value="<?= $cat['id'] ?>"
+                        >
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title">Editar límite de <?= htmlspecialchars($cat['name']) ?></h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                                <h5 class="modal-title">
+                                    Editar límite de <?= htmlspecialchars($cat['name']) ?>
+                                </h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal">
+                                </button>
                             </div>
+                            <div class="form-error" style="display:none;"></div>
                             <div class="modal-body">
-                                <input type="number" step="0.01" name="amount" value="<?= $dataBudget ?>" class="form-control" required>
+                                <input 
+                                    type="number" 
+                                    step="0.01" 
+                                    name="amount" 
+                                    placeholder="Límite mensual en €" 
+                                    class="form-control" 
+                                    value="<?= $cat['amount'] ?>" 
+                                    data-required
+                                    data-positive
+                                >
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                                <button type="submit" class="btn btn-primary">Guardar</button>
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                                    Cerrar
+                                </button>
+                                <button type="submit" class="btn btn-primary">
+                                    Guardar
+                                </button>
                             </div>
                         </div>
                     </form>
@@ -100,19 +131,35 @@ include 'includes/header.php';
             <div class="modal fade" id="deleteCategoryModal<?= $cat['id'] ?>" tabindex="-1">
                 <div class="modal-dialog">
                     <form action="backend/categories/category_action.php" method="POST">
-                        <input type="hidden" name="action" value="delete">
-                        <input type="hidden" name="id" value="<?= $cat['id'] ?>">
+                        <input 
+                            type="hidden" 
+                            name="action" 
+                            value="delete"
+                        >
+                        <input 
+                            type="hidden" 
+                            name="id" 
+                            value="<?= $cat['id'] ?>"
+                        >
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title">Eliminar <?= htmlspecialchars($cat['name']) ?></h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                                <h5 class="modal-title">
+                                    Eliminar <?= htmlspecialchars($cat['name']) ?>
+                                </h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal">
+                                </button>
                             </div>
+                            <div class="form-error" style="display:none;"></div>
                             <div class="modal-body">
                                 ¿Seguro que quieres eliminar esta categoría?
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                                <button type="submit" class="btn btn-danger">Eliminar</button>
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                                    Cancelar
+                                </button>
+                                <button type="submit" class="btn btn-danger">
+                                    Eliminar
+                                </button>
                             </div>
                         </div>
                     </form>
@@ -122,30 +169,57 @@ include 'includes/header.php';
             <div class="modal fade" id="addCategoryModal" tabindex="-1" aria-hidden="true">
                 <div class="modal-dialog">
                     <form action="backend/categories/category_action.php" method="POST">
-                        <input type="hidden" name="action" value="insert">
+                        <input 
+                            type="hidden" 
+                            name="action" 
+                            value="add"
+                        >
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title">Añadir categoría</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                                <h5 class="modal-title">
+                                    Añadir categoría
+                                </h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal">
+                                </button>
                             </div>
+                            <div class="form-error" style="display:none;"></div>
                             <div class="modal-body">
-                                <select name="category_id" class="form-control" required>
+                                <label for="category_id">Categoría:</label>
+                                <select name="category_id" class="form-control mt-2" required>
                                     <option value="">Selecciona categoría</option>
                                     <?php foreach ($available_categories as $baseCat): ?>
-                                        <option value="<?= $baseCat['id'] ?>"><?= htmlspecialchars($baseCat['name']) ?></option>
+                                        <option value="<?= $baseCat['id'] ?>"><?= htmlspecialchars($baseCat['name']) ?>
+                                        </option>
                                     <?php endforeach; ?>
                                 </select>
-                                <input type="number" step="0.01" name="amount" placeholder="Límite mensual (€)" class="form-control mt-2" required>
+                                <label for="amount" class="mt-2">Límite mensual:</label>
+                                <input 
+                                    type="number" 
+                                    step="0.01" 
+                                    name="amount" 
+                                    placeholder="€" 
+                                    class="form-control mt-2" 
+                                    data-required
+                                    data-positive
+                                >
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                                <button type="submit" class="btn btn-primary">Añadir</button>
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                                    Cerrar
+                                </button>
+                                <button type="submit" class="btn btn-primary">
+                                    Añadir
+                                </button>
                             </div>
                         </div>
                     </form>
                 </div>
             </div>
-
+            <div class="add-category-button-container">
+                <button class="button-app add-category-button" title="Añadir categoría" data-bs-toggle="modal" data-bs-target="#addCategoryModal">
+                    <i class="fa-solid fa-plus"></i>
+                </button>
+            </div>
         </div>
     </section>
 </main>

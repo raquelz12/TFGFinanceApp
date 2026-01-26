@@ -99,46 +99,52 @@ main {
         gap: 15px;
         justify-content: center;
     }
-
-    .transactions-section {
-        margin-top: 3rem;
-        padding: 0 2rem 3rem;
-        margin-bottom: 5rem;
-    }
-
-    .transactions-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-
-    .transaction-list {
-        margin-top: 1.4rem;
-    }
-
-    .transaction-item {
-        background: c.$white;
-        padding: 1rem 1.2rem;
-        border-radius: 12px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        box-shadow: 0 2px 10px rgba(0,0,0,0.07);
-        margin-bottom: .8rem;
-    }
-
-    .t-cat {
-        color: c.$light-grey;
-    }
-
-    .t-amount {
-        font-weight: bold;
-        color: c.$red;
-    }
 }
+
+.transactions-section {
+    margin-top: 3rem;
+    padding: 0 2rem 3rem;
+    margin-bottom: 5rem;
+}
+
+.transactions-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.transaction-list {
+    margin-top: 1.4rem;
+}
+
+.transaction-item {
+    background: c.$white;
+    padding: 1rem 1.2rem;
+    border-radius: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.07);
+    margin-bottom: .8rem;
+}
+
+.t-cat {
+    color: c.$light-grey;
+}
+
+.t-amount {
+    font-weight: bold;
+    color: c.$red;
+}
+
 
 .blurred {
   filter: blur(5px);
   pointer-events: none;
   user-select: none;
+}
+
+.view-more-btn {
+    display: block;
+    margin: 1.5rem auto 0 auto;
 }

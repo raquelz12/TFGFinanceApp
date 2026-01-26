@@ -31,29 +31,37 @@ include 'includes/header.php'; ?>
         <section class="profile-card">
             <h2>Información personal</h2>
             <form action="backend/profile/update_profile.php" method="POST">
+                <div class="form-error text-danger" style="display:none;"></div>
                 <div class="form-group">
-                  <label>Nombre</label>
-                  <input
-                    type="text"
-                    name="name"
-                    value="<?= htmlspecialchars($user['name']) ?>"
-                    required
-                  >
+                    <label for="name">Nombre</label>
+                    <input
+                        type="text"
+                        name="name"
+                        id="name"
+                        value="<?= htmlspecialchars($user['name']) ?>"
+                        data-required
+                        data-minlength="3"
+                        data-maxlength="50"
+                    >
                 </div>
                 <div class="form-group">
-                  <label>Email</label>
-                  <input
-                    type="email"
-                    value="<?= htmlspecialchars($user['email']) ?>"
-                    disabled
-                  >
+                    <label for="email">Email</label>
+                    <input
+                        type="email"
+                        name="email"
+                        id="email"
+                        value="<?= htmlspecialchars($user['email']) ?>"
+                        disabled
+                    >
                 </div>
                 <button class="btn btn-primary">Guardar cambios</button>
             </form>
         </section>
         <section class="profile-card">
             <h2>Seguridad</h2>
-            <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#ModalChangePassword">Cambiar contraseña</button>
+            <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#ModalChangePassword">
+                Cambiar contraseña
+            </button>
             <div class="modal fade" id="ModalChangePassword" tabindex="-1" aria-labelledby="ModalChangePassword" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -63,17 +71,45 @@ include 'includes/header.php'; ?>
                     </div>
                     <div class="modal-body">
                         <form action="backend/profile/update_password.php" method="POST">
+                            <div class="form-error text-danger mb-2" style="display:none;"></div>
                             <div class="form-group">
-                                <label>Contraseña actual</label>
-                                <input type="password" name="current_password" required>
+                                <label for="current_password">
+                                    Contraseña actual
+                                </label>
+                                <input 
+                                    type="password" 
+                                    name="current_password" 
+                                    id="current_password" 
+                                    data-required
+                                    data-minlength="8"
+                                    data-maxlength="50"
+                                >
                             </div>
                             <div class="form-group">
-                                <label>Nueva contraseña</label>
-                                <input type="password" name="new_password" required>
+                                <label for="new_password">
+                                    Nueva contraseña
+                                </label>
+                                <input 
+                                    type="password" 
+                                    name="new_password" 
+                                    id="new_password" 
+                                    data-required
+                                    data-minlength="8"
+                                    data-maxlength="50"
+                                >
                             </div>
                             <div class="form-group">
-                                <label>Confirmar nueva contraseña</label>
-                                <input type="password" name="confirm_new_password" required>
+                                <label for="confirm_new_password">
+                                    Confirmar nueva contraseña
+                                </label>
+                                <input 
+                                    type="password" 
+                                    name="confirm_new_password" 
+                                    id="confirm_new_password" 
+                                    data-required
+                                    data-minlength="8"
+                                    data-maxlength="50"
+                                >
                             </div>
                             <div class="modal-footer">
                                 <button type="button"
@@ -81,7 +117,6 @@ include 'includes/header.php'; ?>
                                         data-bs-dismiss="modal">
                                     Cerrar
                                 </button>
-
                                 <button type="submit" class="button-app">
                                     Guardar cambios
                                 </button>
@@ -91,7 +126,9 @@ include 'includes/header.php'; ?>
                 </div>
             </div>
         </div>
-            <button class="btn btn-outline-danger" onclick="window.location.href='backend/authentication/logout.php'">Cerrar sesión</button>
+            <button class="btn btn-outline-danger" onclick="window.location.href='backend/authentication/logout.php'">
+                Cerrar sesión
+            </button>
         </section>
     </div>
 </main>

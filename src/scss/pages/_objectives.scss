@@ -2,7 +2,7 @@
 
 .objectives-page {
   padding: 0 2rem;
-  margin-top: 2rem;
+  margin-top: 3rem;
   min-height: 700px;
 }
 
@@ -23,6 +23,12 @@
   margin-bottom: 2rem;
 }
 
+.objectives-message {
+    margin-bottom: 1rem;
+    color: c.$red;
+    font-weight: 600;
+}
+
 .objectives-list {
     margin-top: 2rem;
     margin-bottom: 2rem;
@@ -33,6 +39,7 @@
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: flex-start;
+        gap: 2rem;
 
         @media (max-width: 700px) {
             flex-direction: column;
@@ -44,12 +51,37 @@
     background: c.$white;
     border-radius: 18px;
     box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+    height: 200px;
     padding: 1.6rem;
     width: 320px;
-    
-    h2 {
-        font-size: 1.2rem;
-        margin-bottom: .5rem;
+
+    .card-header {
+        align-items: center;
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 1rem;
+
+        h2 {
+            font-size: 1.2rem;
+            margin-bottom: .5rem;
+        }
+
+        .objective-button {
+            aspect-ratio: 1/1;
+            background: none;
+            border-radius: 50%;
+            border: none;
+            font-size: 1.2rem;
+            transition: 0.2s;
+            
+            &:hover {
+                background-color: color-mix(
+                in srgb,
+                c.$primary-blue 15%,
+                transparent
+                );
+            }
+        }
     }
     
     .objective-amount {
@@ -75,11 +107,6 @@
         font-size: .9rem;
         color: c.$light-grey;
         margin-bottom: 1rem;
-    }
-    
-    .objective-actions {
-        display: flex;
-        gap: .5rem;
     }
 }
 

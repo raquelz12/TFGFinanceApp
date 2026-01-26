@@ -23,34 +23,31 @@ if ($name === '' || $amount <= 0 || $category_id <= 0) {
     exit;
 }
 
-$stmt = $pdo->prepare("
-    SELECT id
-    FROM categories
-    WHERE id = ? AND user_id = ?
-");
-$stmt->execute([$category_id, $user_id]);
+$pdo->beginTransaction();
 
-if (!$stmt->fetch()) {
-    $_SESSION['error'] = 'Categoría no válida';
-    header("Location: ../../app_dashboard.php");
-    exit;
+try {
+    $stmt = $pdo->prepare("
+        INSERT INTO expenses (user_id, category_id, name, amount)
+        VALUES (?, ?, ?, ?)
+    ");
+    $stmt->execute([$user_id, $category_id, $name, $amount]);
+
+    $stmt = $pdo->prepare("
+        UPDATE categories
+        SET 
+            amount = amount + ?,
+            completed_amount = completed_amount + ?
+        WHERE id = ? AND user_id = ?
+    ");
+    $stmt->execute([$amount, $amount, $category_id, $user_id]);
+
+    $pdo->commit();
+    $_SESSION['success'] = 'Gasto añadido correctamente';
+
+} catch (Exception $e) {
+    $pdo->rollBack();
+    $_SESSION['error'] = 'Error al guardar el gasto';
 }
 
-$stmt = $pdo->prepare("
-    INSERT INTO expenses (user_id, category_id, name, amount)
-    VALUES (?, ?, ?, ?)
-");
-$stmt->execute([$user_id, $category_id, $name, $amount]);
-
-$stmt = $pdo->prepare("
-    UPDATE categories
-    SET 
-        amount = amount + ?,
-        completed_amount = completed_amount + ?
-    WHERE id = ? AND user_id = ?
-");
-$stmt->execute([$amount, $amount, $category_id, $user_id]);
-
-$_SESSION['success'] = 'Gasto añadido correctamente';
 header("Location: ../../app_dashboard.php");
 exit;

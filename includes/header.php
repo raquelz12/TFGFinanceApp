@@ -63,6 +63,9 @@
                         <li class="nav-item">
                             <a class="nav-link" href="objectives.php">Objetivos</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="expenses.php">Gastos</a>
+                        </li>
                     </ul>
                 </div>
             </div>

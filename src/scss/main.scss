@@ -2,15 +2,17 @@
 @use "base/fonts" as f;
 @use "layout/header" as header;
 @use "layout/footer" as footer;
+@use "components/buttons" as buttons;
+@use "components/form-error" as formError;
 @use "pages/home" as home;
 @use "pages/login" as login;
 @use "pages/contact" as contact;
 @use "pages/dashboard" as dashboard;
 @use "pages/register" as register;
-@use "components/buttons" as buttons;
 @use "pages/categories" as categories;
 @use "pages/objectives" as objectives;
 @use "pages/profile" as profile;
+@use "pages/expenses" as expenses;
 
 
 body {

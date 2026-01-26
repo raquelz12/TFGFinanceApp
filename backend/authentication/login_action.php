@@ -10,6 +10,12 @@ $stmt = $pdo->prepare($sql);
 $stmt->execute([$email]);
 $user = $stmt->fetch();
 
+if ($email === "" || $password === "") {
+    $_SESSION["message"] = "Por favor, completa todos los campos.";
+    header("Location: ../../login.php");
+    exit;
+}
+
 if ($user && password_verify($password, $user["password"])) {
     $_SESSION["user_id"] = $user["id"];
     $_SESSION["user_name"] = $user["name"];
