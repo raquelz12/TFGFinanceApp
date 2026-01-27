@@ -1,8 +1,11 @@
 <?php 
 session_start();
+
 $errors = $_SESSION["register_errors"] ?? [];
 $old    = $_SESSION["old_data"] ?? [];
 unset($_SESSION["register_errors"], $_SESSION["old_data"]);
+require_once __DIR__ . DIRECTORY_SEPARATOR . 'bootstrap.php';
+
 include 'includes/header.php'; ?>
 
 <main>

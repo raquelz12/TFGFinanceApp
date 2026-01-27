@@ -1,5 +1,5 @@
 <?php
-require "../config/connection.php";
+require_once __DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'bootstrap.php';
 
 $pdo->exec("
     CREATE TABLE IF NOT EXISTS users (

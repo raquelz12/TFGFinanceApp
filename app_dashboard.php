@@ -1,6 +1,7 @@
 <?php 
 session_start();
-require 'backend/config/connection.php';
+require_once __DIR__ . DIRECTORY_SEPARATOR . 'bootstrap.php';
+
 if (!isset($_SESSION["user_id"])) {
     header("Location: login.php");
     exit;
@@ -163,6 +164,9 @@ include 'includes/header.php'; ?>
     </section>
     <section class="chart-section">
         <h2>Gastos por categoría</h2>
+        <?php if (empty($labels)): ?>
+            <p class="no-data-message">No hay datos de gastos para este mes.</p>
+        <?php else: ?>
         <div class="chart-wrapper">
             <div class="chart-card">
                 <canvas id="gastosChart"></canvas>
@@ -194,6 +198,7 @@ include 'includes/header.php'; ?>
                 </div>
             </div>
         </div>
+        <?php endif; ?>
     </section>
     <section class="transactions-section">
         <div class="transactions-header">

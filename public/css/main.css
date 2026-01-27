@@ -578,7 +578,6 @@ main .register-link {
   font-weight: 700;
 }
 .profile-page .profile-message {
-  margin-bottom: 1rem;
   color: #e74c3c;
   font-weight: 600;
 }
@@ -653,11 +652,15 @@ main .register-link {
   padding: 1rem 1.2rem;
 }
 
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
 .pagination a {
   margin: 0 5px;
   text-decoration: none;
 }
-
 .pagination .active {
   font-weight: bold;
 }

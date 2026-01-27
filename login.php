@@ -1,5 +1,7 @@
-<?php 
+<?php
 session_start();
+require_once __DIR__ . DIRECTORY_SEPARATOR . 'bootstrap.php';
+
 include 'includes/header.php'; ?>
 
 <main>

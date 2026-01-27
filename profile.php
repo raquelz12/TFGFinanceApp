@@ -1,5 +1,5 @@
 <?php
-require 'backend\config\connection.php';
+require_once __DIR__ . DIRECTORY_SEPARATOR . 'bootstrap.php';
 session_start();
 
 if (!isset($_SESSION["user_id"])) {
@@ -18,20 +18,20 @@ include 'includes/header.php'; ?>
 <main class="profile-page">
     <div class="container">
         <h1>Mi perfil</h1>
-        <?php
-        if (isset($_SESSION["message"])) {
-            echo '<div class="profile-message">';
-            foreach ($_SESSION["message"] as $error) {
-                echo '<p>' . htmlspecialchars($error) . '</p>';
-            }
-            echo '</div>';
-            unset($_SESSION["message"]);
-        }
-        ?>
         <section class="profile-card">
             <h2>Información personal</h2>
             <form action="backend/profile/update_profile.php" method="POST">
                 <div class="form-error text-danger" style="display:none;"></div>
+                <?php
+                if (isset($_SESSION["message"])) {
+                    echo '<div class="profile-message">';
+                    foreach ($_SESSION["message"] as $error) {
+                        echo '<p>' . htmlspecialchars($error) . '</p>';
+                    }
+                    echo '</div>';
+                    unset($_SESSION["message"]);
+                }
+                ?>
                 <div class="form-group">
                     <label for="name">Nombre</label>
                     <input

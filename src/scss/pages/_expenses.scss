@@ -46,11 +46,17 @@
     }
 }
 
-.pagination a {
-    margin: 0 5px;
-    text-decoration: none;
-}
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
 
-.pagination .active {
-    font-weight: bold;
+    a {
+        margin: 0 5px;
+        text-decoration: none;
+    }
+
+    .active {
+        font-weight: bold;
+    }
 }

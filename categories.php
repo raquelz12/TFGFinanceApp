@@ -5,7 +5,7 @@ if (!isset($_SESSION["user_id"])) {
     exit;
 }
 
-require 'backend/config/connection.php';
+require_once __DIR__ . DIRECTORY_SEPARATOR . 'bootstrap.php';
 
 $user_id = $_SESSION['user_id'];
 
@@ -172,7 +172,7 @@ include 'includes/header.php';
                         <input 
                             type="hidden" 
                             name="action" 
-                            value="add"
+                            value="insert"
                         >
                         <div class="modal-content">
                             <div class="modal-header">

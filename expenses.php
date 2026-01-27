@@ -1,6 +1,6 @@
 <?php
 session_start();
-require 'backend/config/connection.php';
+require_once __DIR__ . DIRECTORY_SEPARATOR . 'bootstrap.php';
 
 if (!isset($_SESSION["user_id"])) {
     header("Location: login.php");
@@ -9,9 +9,6 @@ if (!isset($_SESSION["user_id"])) {
 
 $user_id = $_SESSION['user_id'];
 
-/* =========================
-   PAGINACIÓN
-========================= */
 $limit = 10;
 $page = max(1, intval($_GET['page'] ?? 1));
 $offset = ($page - 1) * $limit;
@@ -25,9 +22,6 @@ $stmt->execute([$user_id]);
 $totalExpenses = $stmt->fetchColumn();
 $totalPages = ceil($totalExpenses / $limit);
 
-/* =========================
-   ORDENACIÓN SEGURA
-========================= */
 $allowedSorts = [
     'name'     => 'e.name',
     'category' => 'c.name',
@@ -41,9 +35,6 @@ $order = $_GET['order'] ?? 'desc';
 $order = strtolower($order) === 'asc' ? 'ASC' : 'DESC';
 $orderBy = $allowedSorts[$sort] ?? 'e.created_at';
 
-/* =========================
-   CONSULTA PRINCIPAL
-========================= */
 $stmt = $pdo->prepare("
     SELECT 
         e.id,
