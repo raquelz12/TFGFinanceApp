@@ -11,13 +11,18 @@ $user_id = $_SESSION['user_id'];
 
 $stmt = $pdo->prepare("
     SELECT 
-        id,
-        name,
-        COALESCE(amount,0) AS amount,
-        COALESCE(completed_amount,0) AS completed_amount
-    FROM categories
-    WHERE user_id = ?
-    ORDER BY name ASC
+        c.id,
+        c.name,
+        COALESCE(c.amount, 0) AS amount,
+        COALESCE(SUM(e.amount), 0) AS completed_amount
+    FROM categories c
+    LEFT JOIN expenses e 
+        ON e.category_id = c.id
+        AND MONTH(e.created_at) = MONTH(CURRENT_DATE())
+        AND YEAR(e.created_at) = YEAR(CURRENT_DATE())
+    WHERE c.user_id = ?
+    GROUP BY c.id
+    ORDER BY c.name ASC
 ");
 $stmt->execute([$user_id]);
 $user_categories = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -26,6 +31,7 @@ $stmt = $pdo->prepare("
     SELECT id, name
     FROM categories
     WHERE user_id IS NULL
+    AND name != 'Sin categoria'
     AND name NOT IN (
         SELECT name
         FROM categories

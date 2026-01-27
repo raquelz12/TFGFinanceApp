@@ -1,9 +1,3 @@
-<?php 
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -71,6 +65,9 @@ error_reporting(E_ALL);
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="expenses.php">Gastos</a>
+                        </li>
+                        <li>
+                            <a class="nav-link" href="history.php">Historial</a>
                         </li>
                     </ul>
                 </div>

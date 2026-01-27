@@ -103,6 +103,7 @@ include 'includes/header.php';
                     <span><?= htmlspecialchars($exp['created_at']) ?></span>
                 </div>
             <?php endforeach; ?>
+            <?php if ($totalPages > 1): ?>
             <div class="pagination">
                 <?php for ($i = 1; $i <= $totalPages; $i++): ?>
                     <a href="?page=<?= $i ?>&sort=<?= $sort ?>&order=<?= strtolower($order) ?>"
@@ -111,6 +112,7 @@ include 'includes/header.php';
                     </a>
                 <?php endfor; ?>
             </div>
+            <?php endif; ?>
         </div>
     </section>
 </main>

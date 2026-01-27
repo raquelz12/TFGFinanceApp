@@ -54,13 +54,40 @@ if ($action === 'update') {
 if ($action === 'delete') {
     $cat_id = (int) $_POST['id'];
 
-    $stmt = $pdo->prepare("
-        DELETE FROM categories
-        WHERE id = ? AND user_id = ?
-    ");
-    $stmt->execute([$cat_id, $user_id]);
+    $pdo->beginTransaction();
 
-    $_SESSION['message'] = 'Categoría eliminada correctamente';
+    try {
+        $stmt = $pdo->prepare("
+            SELECT id FROM categories 
+            WHERE name = 'Sin categoría' AND user_id IS NULL
+            LIMIT 1
+        ");
+        $stmt->execute();
+        $defaultCategory = $stmt->fetchColumn();
+
+        $stmt = $pdo->prepare("
+            UPDATE expenses
+            SET category_id = ?
+            WHERE category_id = ? AND user_id = ?
+        ");
+        $stmt->execute([$defaultCategory, $cat_id, $user_id]);
+
+        $stmt = $pdo->prepare("
+            DELETE FROM categories
+            WHERE id = ? AND user_id = ?
+        ");
+        $stmt->execute([$cat_id, $user_id]);
+
+        $pdo->commit();
+        $_SESSION['message'] = 'Categoría eliminada correctamente';
+
+    } catch (Exception $e) {
+        $pdo->rollBack();
+        $_SESSION['message'] = 'Error al eliminar la categoría';
+    }
+
+    header('Location: ../../categories.php');
+    exit;
 }
 
 header('Location: ../../categories.php');

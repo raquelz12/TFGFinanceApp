@@ -2,6 +2,21 @@
 
 .info-section {
     min-height: 700px;
+
+    .cards-section {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1.5rem;
+        justify-content: space-between;
+        margin: 0 2rem;
+        align-content: center;
+        margin-bottom: 2rem;
+
+        @media (max-width: 768px) {
+            flex-direction: column;
+            align-items: center;
+        }
+    }
 }
 
 .info-hero {
@@ -17,16 +32,6 @@
     p {
         margin-top: .5rem;
     }
-}
-
-.cards-section {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1.5rem;
-    justify-content: space-between;
-    margin: 0 2rem;
-    flex-direction: row;
-    align-content: center;
 }
 
 .card {
