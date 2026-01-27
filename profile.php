@@ -21,10 +21,10 @@ include 'includes/header.php'; ?>
         <section class="profile-card">
             <h2>Información personal</h2>
             <form action="backend/profile/update_profile.php" method="POST">
-                <div class="form-error text-danger" style="display:none;"></div>
+                <div class="form-error message" style="display:none;"></div>
                 <?php
                 if (isset($_SESSION["message"])) {
-                    echo '<div class="profile-message">';
+                    echo '<div class="form-error message">';
                     foreach ($_SESSION["message"] as $error) {
                         echo '<p>' . htmlspecialchars($error) . '</p>';
                     }

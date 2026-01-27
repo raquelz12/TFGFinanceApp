@@ -20,7 +20,6 @@ $stmt = $pdo->prepare("
     ORDER BY e.created_at DESC
 ");
 $stmt->execute([$user_id]);
-
 $expenses = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 header('Content-Type: text/csv; charset=UTF-8');
@@ -28,10 +27,12 @@ header('Content-Disposition: attachment; filename="gastos.csv"');
 
 $output = fopen('php://output', 'w');
 
-fputcsv($output, ['Gasto', 'Importe', 'Categoría', 'Fecha']);
+echo "\xEF\xBB\xBF";
+fputcsv($output, ['GASTO', 'IMPORTE', 'CATEGORIA', 'FECHA'], ';');
 
 foreach ($expenses as $expense) {
-    fputcsv($output, $expense);
+    $expense['created_at'] = '"' . date('d/m/Y H:i', strtotime($expense['created_at'])) . '"';
+    fputcsv($output, $expense, ';');
 }
 
 fclose($output);

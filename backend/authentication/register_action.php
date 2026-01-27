@@ -7,6 +7,7 @@ $errors = [];
 $name  = trim($_POST["name"]);
 $email = trim($_POST["email"]);
 $password  = $_POST["password"];
+$repeat_password = $_POST["repeat_password"];
 
 if (empty($name)) {
     $errors[] = "El nombre es obligatorio";
@@ -30,6 +31,10 @@ if (empty($password)) {
     $errors[] = "La contraseña debe tener al menos 8 caracteres, una letra y un número";
 }
 
+if ($password !== $repeat_password) {
+    $errors[] = "Las contraseñas no coinciden";
+}
+
 if (empty($errors)) {
     $stmt = $pdo->prepare("SELECT id FROM users WHERE email = ?");
     $stmt->execute([$email]);
@@ -45,7 +50,6 @@ if (!empty($errors)) {
         "name" => $name,
         "email" => $email
     ];
-    $_SESSION["message"] = implode(" ", $errors);
     header("Location: ../../register.php");
     exit;
 }

@@ -1,6 +1,8 @@
 @use "../base/colors" as c;
 
 .expenses-page {
+    min-height: 700px;
+    
     .expenses-hero {
         padding: 0 2rem;
         margin-top: 3rem;

@@ -1,6 +1,7 @@
 @use "../base/colors" as c;
 
 .profile-page {
+  min-height: 720px;
   padding: 2rem 0;
 
   h1 {
@@ -8,13 +9,13 @@
     font-weight: 700;
   }
 
-  .profile-message {
-    color: c.$red;
-    font-weight: 600;
-  }
-
   .form-error {
     padding: 0rem;
+
+    p {
+      margin: 0;
+      padding: 0;
+    }
   }
 
   .profile-card {
