@@ -2,10 +2,11 @@
 
 .finance-footer {
     background-color: c.$dark-blue;
-    padding: 2rem 0;
-    color: c.$very-light-grey;
     box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.08);
+    color: c.$very-light-grey;
+    flex-shrink: 0;
     margin-top: auto;
+    padding: 2rem 0;
 
     .footer-brand {
         font-size: 1.3rem;

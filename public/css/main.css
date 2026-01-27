@@ -75,10 +75,11 @@ header .finance-navbar .container-fluid .navbar-collapse {
 
 .finance-footer {
   background-color: #1E3A8A;
-  padding: 2rem 0;
-  color: #F3F4F6;
   box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.08);
+  color: #F3F4F6;
+  flex-shrink: 0;
   margin-top: auto;
+  padding: 2rem 0;
 }
 .finance-footer .footer-brand {
   font-size: 1.3rem;
@@ -754,6 +755,34 @@ main .register-link {
 .card-body h2 {
   font-size: 1.1rem;
   color: #6B7280;
+}
+
+.error-page {
+  min-height: 710px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.error-page h1 {
+  font-size: 6rem;
+  font-weight: 800;
+  color: #3B82F6;
+  margin-bottom: 0.5rem;
+}
+.error-page h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+.error-page p {
+  color: #6B7280;
+  margin-bottom: 2rem;
+}
+.error-page .error-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 body {
