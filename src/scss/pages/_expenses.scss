@@ -1,22 +1,56 @@
-.expenses-hero {
-    padding: 0 2rem;
-    margin-top: 3rem;
+@use "../base/colors" as c;
 
-    h2 {
-        font-size: 2.1rem;
-        font-weight: 700;
-        margin: 0;
+.expenses-page {
+    .expenses-hero {
+        padding: 0 2rem;
+        margin-top: 3rem;
+
+        h2 {
+            font-size: 2.1rem;
+            font-weight: 700;
+            margin: 0;
+        }
+
+        p {
+            margin-top: .5rem;
+        }
     }
 
-    p {
-        margin-top: .5rem;
+    .transactions-section {
+        padding: 0 2rem 3rem;
+        margin-bottom: 5rem;
+    }
+
+    .transaction-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-weight: bold;
+    }
+
+    .transaction-list {
+        margin-top: 1.4rem;
+    }
+
+    .transaction-item {
+        align-items: center;
+        background: c.$white;
+        border-radius: 12px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.07);
+        display: grid;
+        gap: 1rem;
+        grid-template-columns: 2fr 2fr 1fr 1.5fr;
+        justify-content: space-between;
+        margin-bottom: .8rem;
+        padding: 1rem 1.2rem;
     }
 }
 
-.transaction-header {
+.pagination a {
+    margin: 0 5px;
+    text-decoration: none;
+}
+
+.pagination .active {
     font-weight: bold;
-}
-
-.transaction-section {
-    margin-top: none;
 }

@@ -1,0 +1,55 @@
+@use "../base/colors" as c;
+
+.info-section {
+    min-height: 700px;
+}
+
+.info-hero {
+    padding: 0 2rem;
+    margin-top: 3rem;
+    
+    h1 {
+        font-size: 2.1rem;
+        font-weight: 700;
+        margin: 0;
+    }
+    
+    p {
+        margin-top: .5rem;
+    }
+}
+
+.cards-section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    justify-content: space-between;
+    margin: 0 2rem;
+    flex-direction: row;
+    align-content: center;
+}
+
+.card {
+    background: c.$white;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+    flex: 1;
+    max-width: 400px;
+    min-width: 300px;
+    padding: 1rem;
+    
+    h2 {
+        font-size: 1.1rem;
+        color: c.$light-grey;
+    }
+    
+    p {
+        font-size: 1.4rem;
+        font-weight: 600;
+        margin-top: 0.8rem;
+    }
+}
+
+.card-body h2 {
+    font-size: 1.1rem;
+    color: c.$light-grey;
+}

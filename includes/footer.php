@@ -7,9 +7,9 @@
                         </span>
                     </div>
                     <div class="col-md-6 text-center text-md-end">
-                        <a href="privacy.php" class="footer-link">Privacidad</a>
-                        <a href="terms.php" class="footer-link ms-3">Términos</a>
-                        <a href="contact.php" class="footer-link ms-3">Contacto</a>
+                        <a href="info.php" class="footer-link">Privacidad</a>
+                        <a href="info.php" class="footer-link ms-3">Términos</a>
+                        <a href="info.php" class="footer-link ms-3">Contacto</a>
                     </div>
                 </div>
                 <div class="footer-copy mt-3 text-center">

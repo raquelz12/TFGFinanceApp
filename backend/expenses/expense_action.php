@@ -8,7 +8,7 @@ if (!isset($_SESSION['user_id'])) {
 }
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-    header("Location: ../../app_dashboard.php");
+    header("Location: ../../expenses.php");
     exit;
 }
 
@@ -19,7 +19,7 @@ $category_id = intval($_POST['category_id'] ?? 0);
 
 if ($name === '' || $amount <= 0 || $category_id <= 0) {
     $_SESSION['error'] = 'Datos del gasto no válidos';
-    header("Location: ../../app_dashboard.php");
+    header("Location: ../../expenses.php");
     exit;
 }
 
@@ -49,5 +49,5 @@ try {
     $_SESSION['error'] = 'Error al guardar el gasto';
 }
 
-header("Location: ../../app_dashboard.php");
+header("Location: ../../expenses.php");
 exit;

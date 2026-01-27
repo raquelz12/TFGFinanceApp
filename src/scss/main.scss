@@ -4,7 +4,6 @@
 @use "layout/footer" as footer;
 @use "components/buttons" as buttons;
 @use "components/form-error" as formError;
-@use "pages/home" as home;
 @use "pages/login" as login;
 @use "pages/contact" as contact;
 @use "pages/dashboard" as dashboard;
@@ -13,6 +12,7 @@
 @use "pages/objectives" as objectives;
 @use "pages/profile" as profile;
 @use "pages/expenses" as expenses;
+@use "pages/info" as info;
 
 
 body {

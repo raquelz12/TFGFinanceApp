@@ -184,19 +184,19 @@ main .register-link {
   margin-bottom: 1rem;
 }
 
-main .dashboard-hero {
+.dashboard .dashboard-hero {
   padding: 0 2rem;
   margin-top: 3rem;
 }
-main .dashboard-hero h1 {
+.dashboard .dashboard-hero h1 {
   font-size: 2.1rem;
   font-weight: 700;
   margin: 0;
 }
-main .dashboard-hero p {
+.dashboard .dashboard-hero p {
   margin-top: 0.5rem;
 }
-main .cards-section {
+.dashboard .cards-section {
   display: flex;
   flex-wrap: wrap;
   gap: 1.5rem;
@@ -204,7 +204,7 @@ main .cards-section {
   margin: 0 2rem;
   padding: 0 2rem;
 }
-main .card {
+.dashboard .card {
   background: #FFFFFF;
   border-radius: 18px;
   border: none;
@@ -214,41 +214,41 @@ main .card {
   min-width: 260px;
   padding: 1.6rem;
 }
-main .card h2 {
+.dashboard .card h2 {
   font-size: 1.1rem;
   color: #6B7280;
 }
-main .card p {
+.dashboard .card p {
   font-size: 1.5rem;
   font-weight: 600;
   margin-top: 0.8rem;
 }
-main .card-body h2 {
+.dashboard .card-body h2 {
   font-size: 1.1rem;
   color: #6B7280;
 }
-main .amount {
+.dashboard .amount {
   font-size: 2rem;
   font-weight: 700;
   margin-top: 0.8rem;
 }
-main .amount.negative {
+.dashboard .amount.negative {
   color: #e74c3c;
 }
-main .amount.positive {
+.dashboard .amount.positive {
   color: #2ecc71;
 }
-main .chart-section {
+.dashboard .chart-section {
   margin-top: 3rem;
   padding: 0 2rem;
 }
-main .chart-card {
+.dashboard .chart-card {
   background: #FFFFFF;
   border-radius: 18px;
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
   padding: 2rem;
 }
-main .chart-wrapper {
+.dashboard .chart-wrapper {
   align-items: center;
   display: flex;
   flex-wrap: wrap;
@@ -256,35 +256,31 @@ main .chart-wrapper {
   justify-content: flex-start;
 }
 @media (min-width: 1440px) {
-  main .chart-wrapper {
+  .dashboard .chart-wrapper {
     flex-wrap: nowrap;
   }
 }
-main .chart-stats {
+.dashboard .chart-stats {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   gap: 15px;
   justify-content: center;
 }
-
-.transactions-section {
+.dashboard .transactions-section {
   margin-top: 3rem;
   padding: 0 2rem 3rem;
   margin-bottom: 5rem;
 }
-
-.transactions-header {
+.dashboard .transactions-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-
-.transaction-list {
+.dashboard .transaction-list {
   margin-top: 1.4rem;
 }
-
-.transaction-item {
+.dashboard .transaction-item {
   background: #FFFFFF;
   padding: 1rem 1.2rem;
   border-radius: 12px;
@@ -619,25 +615,101 @@ main .register-link {
   width: 300px;
 }
 
-.expenses-hero {
+.expenses-page .expenses-hero {
   padding: 0 2rem;
   margin-top: 3rem;
 }
-.expenses-hero h2 {
+.expenses-page .expenses-hero h2 {
   font-size: 2.1rem;
   font-weight: 700;
   margin: 0;
 }
-.expenses-hero p {
+.expenses-page .expenses-hero p {
   margin-top: 0.5rem;
 }
+.expenses-page .transactions-section {
+  padding: 0 2rem 3rem;
+  margin-bottom: 5rem;
+}
+.expenses-page .transaction-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bold;
+}
+.expenses-page .transaction-list {
+  margin-top: 1.4rem;
+}
+.expenses-page .transaction-item {
+  align-items: center;
+  background: #FFFFFF;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.07);
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 2fr 2fr 1fr 1.5fr;
+  justify-content: space-between;
+  margin-bottom: 0.8rem;
+  padding: 1rem 1.2rem;
+}
 
-.transaction-header {
+.pagination a {
+  margin: 0 5px;
+  text-decoration: none;
+}
+
+.pagination .active {
   font-weight: bold;
 }
 
-.transaction-section {
-  margin-top: none;
+.info-section {
+  min-height: 700px;
+}
+
+.info-hero {
+  padding: 0 2rem;
+  margin-top: 3rem;
+}
+.info-hero h1 {
+  font-size: 2.1rem;
+  font-weight: 700;
+  margin: 0;
+}
+.info-hero p {
+  margin-top: 0.5rem;
+}
+
+.cards-section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: space-between;
+  margin: 0 2rem;
+  flex-direction: row;
+  align-content: center;
+}
+
+.card {
+  background: #FFFFFF;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+  flex: 1;
+  max-width: 400px;
+  min-width: 300px;
+  padding: 1rem;
+}
+.card h2 {
+  font-size: 1.1rem;
+  color: #6B7280;
+}
+.card p {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-top: 0.8rem;
+}
+
+.card-body h2 {
+  font-size: 1.1rem;
+  color: #6B7280;
 }
 
 body {
