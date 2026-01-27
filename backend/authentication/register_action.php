@@ -7,7 +7,7 @@ $errors = [];
 $name  = trim($_POST["name"]);
 $email = trim($_POST["email"]);
 $password  = $_POST["password"];
-$repeat_password = $_POST["repeat_password"];
+$confirm_password = $_POST["confirm_password"];
 
 if (empty($name)) {
     $errors[] = "El nombre es obligatorio";
@@ -31,7 +31,7 @@ if (empty($password)) {
     $errors[] = "La contraseña debe tener al menos 8 caracteres, una letra y un número";
 }
 
-if ($password !== $repeat_password) {
+if ($password !== $confirm_password) {
     $errors[] = "Las contraseñas no coinciden";
 }
 

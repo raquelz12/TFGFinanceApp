@@ -80,7 +80,13 @@ include 'includes/header.php';
                     >
                     </div>
                 </div>
-                <p class="progress-info"><?= $dataAmount ?>€ / <?= $dataBudget ?>€</p>
+                <p class="progress-info">
+                    <?php if ($dataBudget < $dataAmount): ?>
+                        <span class="over-budget">Has superado el límite de <?= $dataBudget ?>€</span>
+                    <?php else: ?>
+                        <?= $dataAmount ?>€ / <?= $dataBudget ?>€
+                    <?php endif; ?>
+                </p>
             </div>
             <div class="modal fade" id="editLimitModal<?= $cat['id'] ?>" tabindex="-1">
                 <div class="modal-dialog">

@@ -1,6 +1,7 @@
 <?php
 session_start();
 require_once __DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'bootstrap.php';
+$redirect = $_SERVER['HTTP_REFERER'] ?? '../../expenses.php';
 
 if (!isset($_SESSION['user_id'])) {
     header("Location: ../../login.php");
@@ -8,7 +9,7 @@ if (!isset($_SESSION['user_id'])) {
 }
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-    header("Location: ../../expenses.php");
+    header("Location: $redirect");
     exit;
 }
 
@@ -19,13 +20,13 @@ $category_id = intval($_POST['category_id'] ?? 0);
 
 if ($name === '' || $amount <= 0 || $category_id <= 0) {
     $_SESSION['error'] = 'Datos del gasto no válidos';
-    header("Location: ../../expenses.php");
+    header("Location: $redirect");
     exit;
 }
 
-$pdo->beginTransaction();
-
 try {
+    $pdo->beginTransaction();
+
     $stmt = $pdo->prepare("
         INSERT INTO expenses (user_id, category_id, name, amount)
         VALUES (?, ?, ?, ?)
@@ -34,12 +35,10 @@ try {
 
     $stmt = $pdo->prepare("
         UPDATE categories
-        SET 
-            amount = amount + ?,
-            completed_amount = completed_amount + ?
+        SET completed_amount = completed_amount + ?
         WHERE id = ? AND user_id = ?
     ");
-    $stmt->execute([$amount, $amount, $category_id, $user_id]);
+    $stmt->execute([$amount, $category_id, $user_id]);
 
     $pdo->commit();
     $_SESSION['success'] = 'Gasto añadido correctamente';
@@ -49,5 +48,5 @@ try {
     $_SESSION['error'] = 'Error al guardar el gasto';
 }
 
-header("Location: ../../expenses.php");
+header("Location: $redirect");
 exit;

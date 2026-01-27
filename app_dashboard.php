@@ -121,22 +121,40 @@ include 'includes/header.php'; ?>
     <section class="cards-section">
         <div class="card">
             <div class="card-body">
-                <h2>Gasto total del mes</h2>
-                <?php if (!isset($_SESSION['blur_amount']) || $_SESSION['blur_amount'] === false) : ?>
+                <div class="card-title">
+                    <h2>Gasto total del mes</h2>
+                    <button type="button" class="btn info-button"
+                        data-bs-toggle="popover" data-bs-placement="up"
+                        data-bs-custom-class="custom-popover"
+                        data-bs-title="Gasto total del mes"
+                        data-bs-content="Este es el total de gastos que has realizado en el mes actual.">
+                        <i class="fa-solid fa-circle-info"></i>
+                    </button>
+                </div>
+                <?php if ($total_month > 0) : ?>
                     <p class="amount">
                         <?php
                         echo number_format($total_month, 2) 
                         ?>€
                     </p>
-                    <?php else : ?>
+                <?php else : ?>
                     <span class="blurred">****€</span>
-                    <?php endif; ?>
+                <?php endif; ?>
             </div>
         </div>
         <div class="card">
             <div class="card-body">
-                <h2>Gasto promedio diario</h2>
-                <?php if (!isset($_SESSION['blur_amount']) || $_SESSION['blur_amount'] === false) : ?>
+                <div class="card-title">
+                    <h2>Gasto diario promedio</h2>
+                    <button type="button" class="btn info-button"
+                        data-bs-toggle="popover" data-bs-placement="up"
+                        data-bs-custom-class="custom-popover"
+                        data-bs-title="Gasto diario promedio"
+                        data-bs-content="Este es el gasto promedio que has realizado por día en el mes actual.">
+                        <i class="fa-solid fa-circle-info"></i>
+                    </button>
+                </div>
+                <?php if ($average_daily > 0) : ?>
                     <p class="amount">
                         <?php
                         echo number_format($average_daily, 2) 
@@ -149,8 +167,18 @@ include 'includes/header.php'; ?>
         </div>
         <div class="card">
             <div class="card-body">
-                <h2>Ahorro estimado</h2>
-                <?php if (!isset($_SESSION['blur_amount']) || $_SESSION['blur_amount'] === false) : ?>
+                <div class="card-title">
+                    <h2>Ahorro estimado</h2>
+                    <button type="button" class="btn info-button"
+                        data-bs-toggle="popover" data-bs-placement="up"
+                        data-bs-custom-class="custom-popover"
+                        data-bs-title="Ahorro estimado"
+                        data-bs-content="Este es el ahorro estimado que has logrado en el mes actual,
+                        contando todos los objetivos de cada categoría.">
+                        <i class="fa-solid fa-circle-info"></i>
+                    </button>
+                </div>
+                <?php if ($estimated_saving > 0) : ?>
                     <p class="amount">
                         <?php
                         echo number_format($estimated_saving, 2) 

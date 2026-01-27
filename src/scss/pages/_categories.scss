@@ -102,6 +102,11 @@
     .progress-info {
         font-size: 14px;
         margin-top: 5px;
+
+        .over-budget {
+            color: c.$red;
+            font-weight: 600;
+        }
     }
 }
 

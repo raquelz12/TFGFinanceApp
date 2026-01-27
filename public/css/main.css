@@ -223,6 +223,39 @@ main .register-link {
   font-weight: 600;
   margin-top: 0.8rem;
 }
+.dashboard .card .card-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+.dashboard .card .custom-popover {
+  max-width: 250px;
+  font-size: 0.9rem;
+}
+.dashboard .card .custom-popover .popover-header {
+  background-color: #3B82F6;
+  color: #FFFFFF;
+  font-weight: 600;
+}
+.dashboard .card .custom-popover .popover-body {
+  color: #1F2937;
+}
+.dashboard .card .info-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  color: #3B82F6;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+.dashboard .card .info-button:hover {
+  color: #1E3A8A;
+}
 .dashboard .card-body h2 {
   font-size: 1.1rem;
   color: #6B7280;
@@ -447,6 +480,10 @@ main .register-link {
 .categories-section .progress-info {
   font-size: 14px;
   margin-top: 5px;
+}
+.categories-section .progress-info .over-budget {
+  color: #e74c3c;
+  font-weight: 600;
 }
 
 .add-category-button-container {
