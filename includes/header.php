@@ -49,25 +49,28 @@
                     </a>
                 </div>
                 <?php endif; ?>
+                <?php
+                $currentPage = basename($_SERVER['PHP_SELF']);
+                ?>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="mainNavbar">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="app_dashboard.php">Dashboard</a>
+                            <a class="nav-link <?= $currentPage === 'app_dashboard.php' ? 'active' : '' ?>" href="app_dashboard.php">Dashboard</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="categories.php">Categorías</a>
+                            <a class="nav-link <?= $currentPage === 'categories.php' ? 'active' : '' ?>" href="categories.php">Categorías</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="objectives.php">Objetivos</a>
+                            <a class="nav-link <?= $currentPage === 'objectives.php' ? 'active' : '' ?>" href="objectives.php">Objetivos</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="expenses.php">Gastos</a>
+                            <a class="nav-link <?= $currentPage === 'expenses.php' ? 'active' : '' ?>" href="expenses.php">Gastos</a>
                         </li>
-                        <li>
-                            <a class="nav-link" href="history.php">Historial</a>
+                        <li class="nav-item">
+                            <a class="nav-link <?= $currentPage === 'history.php' ? 'active' : '' ?>" href="history.php">Historial</a>
                         </li>
                     </ul>
                 </div>

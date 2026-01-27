@@ -42,6 +42,14 @@ header {
           transition: width 0.3s;
           width: 0;
         }
+
+        &.active {
+          color: c.$white;
+
+          &::after {
+              width: 100%;
+          }
+        }
       }
 
       .navbar-toggler {

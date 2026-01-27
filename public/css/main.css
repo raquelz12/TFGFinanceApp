@@ -42,6 +42,12 @@ header .finance-navbar .container-fluid .nav-link::after {
   transition: width 0.3s;
   width: 0;
 }
+header .finance-navbar .container-fluid .nav-link.active {
+  color: #FFFFFF;
+}
+header .finance-navbar .container-fluid .nav-link.active::after {
+  width: 100%;
+}
 header .finance-navbar .container-fluid .navbar-toggler {
   border: none;
 }
@@ -230,6 +236,11 @@ main .register-link {
   justify-content: space-between;
   align-items: center;
   position: relative;
+}
+.dashboard .card .text {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-top: 0.8rem;
 }
 .dashboard .card .custom-popover {
   max-width: 250px;
@@ -674,10 +685,14 @@ main .register-link {
   margin-bottom: 5rem;
 }
 .expenses-page .transaction-header {
-  display: flex;
-  justify-content: space-between;
   align-items: center;
+  color: #3B82F6;
+  display: flex;
   font-weight: bold;
+  justify-content: space-between;
+}
+.expenses-page .transaction-header a {
+  text-decoration: none;
 }
 .expenses-page .transaction-list {
   margin-top: 1.4rem;
@@ -689,10 +704,21 @@ main .register-link {
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.07);
   display: grid;
   gap: 1rem;
-  grid-template-columns: 2fr 2fr 1fr 1.5fr;
+  grid-template-columns: 2fr 2fr 1fr 1.5fr 1.5fr;
   justify-content: space-between;
   margin-bottom: 0.8rem;
   padding: 1rem 1.2rem;
+}
+.expenses-page .transaction-item .expense-button {
+  aspect-ratio: 1/1;
+  background: none;
+  border-radius: 50%;
+  border: none;
+  font-size: 1.2rem;
+  transition: 0.2s;
+}
+.expenses-page .transaction-item .expense-button:hover {
+  background-color: color-mix(in srgb, #3B82F6 15%, transparent);
 }
 
 .pagination {
@@ -708,6 +734,55 @@ main .register-link {
   font-weight: bold;
 }
 
+.form-error {
+  margin: 1rem;
+}
+
+.button-app {
+  margin-top: 0.5rem;
+}
+
+@media (max-width: 600px) {
+  .transaction-header.transaction-item {
+    display: none;
+  }
+  .transaction-item {
+    grid-template-columns: 1fr auto;
+    grid-template-areas: "name actions" "category category" "amount date";
+    padding: 0.9rem 1rem;
+    row-gap: 0.25rem;
+  }
+  .transaction-item span:nth-child(1) {
+    grid-area: name;
+    font-weight: 600;
+    font-size: 1rem;
+  }
+  .transaction-item span:nth-child(2) {
+    grid-area: category;
+    font-size: 0.85rem;
+    color: #888;
+  }
+  .transaction-item span:nth-child(3) {
+    grid-area: amount;
+    font-size: 1rem;
+    font-weight: 600;
+    justify-self: start;
+  }
+  .transaction-item span:nth-child(4) {
+    grid-area: date;
+    font-size: 0.85rem;
+    color: #555;
+  }
+  .transaction-item span:nth-child(5) {
+    grid-area: actions;
+    display: flex;
+    gap: 0.4rem;
+    align-items: center;
+  }
+  .expense-button {
+    font-size: 1rem;
+  }
+}
 .info-section {
   min-height: 700px;
 }

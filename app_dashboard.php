@@ -185,7 +185,11 @@ include 'includes/header.php'; ?>
                         ?>€
                     </p>
                 <?php else : ?>
+                    <?php if ($estimated_saving === 0) : ?>
                     <span class="blurred">****€</span>
+                    <?php else : ?>
+                        <span class="text">No estás ahorrando nada :/</span>
+                    <?php endif; ?>
                 <?php endif; ?>
             </div>
         </div>

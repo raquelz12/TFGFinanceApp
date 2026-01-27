@@ -76,13 +76,12 @@ $categories = $stmt->fetchAll(PDO::FETCH_ASSOC);
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
                         Cancelar
                     </button>
-                    <button type="submit" name="action" value="insert" class="btn btn-primary">
+                    <input type="hidden" name="action" value="add">
+                    <button type="submit" class="btn btn-primary">
                         Guardar gasto
                     </button>
                 </div>
-
             </form>
-
         </div>
     </div>
 </div>
