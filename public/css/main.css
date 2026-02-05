@@ -139,7 +139,6 @@ header .finance-navbar .container-fluid .navbar-collapse {
   color: #e74c3c;
   font-size: 1rem;
   font-weight: 600;
-  padding: 1rem;
 }
 
 main .login-container {
@@ -454,6 +453,14 @@ main .register-link {
   justify-content: space-between;
   margin-bottom: 1rem;
 }
+.categories-section .category-progress .card-header h2 {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+.categories-section .category-progress .card-header .category-buttons {
+  display: flex;
+  gap: 0.5rem;
+}
 .categories-section .category-progress .card-header .category-button {
   aspect-ratio: 1/1;
   background: none;
@@ -476,6 +483,11 @@ main .register-link {
   padding: 1.6rem;
   margin: 1rem;
 }
+.categories-section .category-amount {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
 .categories-section .progress-bar-container {
   width: 100%;
   height: 15px;
@@ -497,6 +509,7 @@ main .register-link {
 .categories-section .progress-info .over-budget {
   color: #e74c3c;
   font-weight: 600;
+  font-size: 1.1rem;
 }
 
 .add-category-button-container {
@@ -560,15 +573,17 @@ main .register-link {
   background: #FFFFFF;
   border-radius: 18px;
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
-  height: 200px;
+  height: 220px;
   padding: 1.6rem;
   width: 320px;
 }
 .objective-card .card-header {
-  align-items: center;
+  align-items: flex-start;
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
   margin-bottom: 1rem;
+  gap: 2rem;
 }
 .objective-card .card-header h2 {
   font-size: 1.2rem;
@@ -585,9 +600,21 @@ main .register-link {
 .objective-card .card-header .objective-button:hover {
   background-color: color-mix(in srgb, #3B82F6 15%, transparent);
 }
+.objective-card .objective-buttons {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+}
 .objective-card .objective-amount {
   font-size: 1.4rem;
   font-weight: 600;
+  margin-bottom: 1rem;
+}
+.objective-card .objective-completed {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #2ecc71;
   margin-bottom: 1rem;
 }
 .objective-card .progress {
@@ -668,6 +695,10 @@ main .register-link {
 .expenses-page {
   min-height: 700px;
 }
+.expenses-page .form-error {
+  margin: 1rem;
+  padding-left: 1rem;
+}
 .expenses-page .expenses-hero {
   padding: 0 2rem;
   margin-top: 3rem;
@@ -734,23 +765,25 @@ main .register-link {
   font-weight: bold;
 }
 
-.form-error {
-  margin: 1rem;
-}
-
 .button-app {
   margin-top: 0.5rem;
 }
 
 @media (max-width: 600px) {
-  .transaction-header.transaction-item {
+  .expenses-page .transaction-header.transaction-item {
     display: none;
   }
-  .transaction-item {
+  .expenses-page .transaction-item {
+    display: grid;
     grid-template-columns: 1fr auto;
+    grid-template-rows: auto;
     grid-template-areas: "name actions" "category category" "amount date";
-    padding: 0.9rem 1rem;
-    row-gap: 0.25rem;
+    align-items: start;
+    gap: 0.4rem;
+  }
+  .transaction-item span:nth-child(1),
+  .transaction-item span:nth-child(2) {
+    width: 100%;
   }
   .transaction-item span:nth-child(1) {
     grid-area: name;
@@ -777,6 +810,7 @@ main .register-link {
     grid-area: actions;
     display: flex;
     gap: 0.4rem;
+    justify-self: end;
     align-items: center;
   }
   .expense-button {
@@ -939,6 +973,7 @@ main .register-link {
   font-size: 1.5rem;
   font-weight: 600;
   margin-top: 0.8rem;
+  min-width: max-content;
 }
 
 .history-expenses {
@@ -988,6 +1023,13 @@ main .register-link {
 }
 .pagination .active {
   font-weight: bold;
+}
+
+.history-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 1.5rem;
 }
 
 body {

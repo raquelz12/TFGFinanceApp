@@ -59,9 +59,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
             if (!valid) {
                 e.preventDefault();
+
                 if (errorBox) {
                     errorBox.innerText = message;
                     errorBox.style.display = "block";
+                    errorBox.style.opacity = 1;
+                    
+                    setTimeout(() => {
+                        errorBox.style.transition = "opacity 0.5s ease";
+                        errorBox.style.opacity = 0;
+                        setTimeout(() => {
+                            errorBox.style.display = "none";
+                        }, 500);
+                    }, 6000);
                 }
             }
         });
@@ -69,19 +79,3 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 });
-
-
-document.addEventListener("DOMContentLoaded", function() {
-
-    const messages = document.querySelectorAll('.form-error.message');
-    messages.forEach(msg => {
-        setTimeout(() => {
-            msg.style.transition = "opacity 0.5s ease";
-            msg.style.opacity = 0;
-            setTimeout(() => msg.remove(), 500);
-        }, 6000);
-    });
-});
-
-
-

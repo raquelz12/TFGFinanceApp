@@ -69,14 +69,23 @@ include 'includes/header.php';
             ?>
             <div class="category-progress">
                 <div class="card-header">
-                    <h4><?= htmlspecialchars($cat['name']); ?></h4>
-                    <button class="category-button" title="Editar límite mensual" data-bs-toggle="modal" data-bs-target="#editLimitModal<?= $cat['id'] ?>">
-                        <i class="fa-solid fa-pencil"></i>
-                    </button>
-                    <button class="category-button" title="Eliminar categoría" data-bs-toggle="modal" data-bs-target="#deleteCategoryModal<?= $cat['id'] ?>">
-                        <i class="fa-solid fa-trash"></i>
-                    </button>
+                    <h2><?= htmlspecialchars($cat['name']); ?></h2>
+                    <div class="category-buttons">
+                        <button class="category-button" title="Editar límite mensual" data-bs-toggle="modal" data-bs-target="#editLimitModal<?= $cat['id'] ?>">
+                            <i class="fa-solid fa-pencil"></i>
+                        </button>
+                        <button class="category-button" title="Eliminar categoría" data-bs-toggle="modal" data-bs-target="#deleteCategoryModal<?= $cat['id'] ?>">
+                            <i class="fa-solid fa-trash"></i>
+                        </button>
+                    </div>
                 </div>
+                <p class="progress-info">
+                    <?php if ($dataBudget <= $dataAmount): ?>
+                        <span class="over-budget">Superaste el límite de <?= $dataBudget ?>€</span>
+                    <?php else: ?>
+                        <p class="category-amount"><?= $dataAmount ?>€ / <?= $dataBudget ?>€</p>
+                    <?php endif; ?>
+                </p>
                 <div class="progress-bar-container">
                     <div 
                         class="progress-bar-fill" 
@@ -86,13 +95,6 @@ include 'includes/header.php';
                     >
                     </div>
                 </div>
-                <p class="progress-info">
-                    <?php if ($dataBudget < $dataAmount): ?>
-                        <span class="over-budget">Has superado el límite de <?= $dataBudget ?>€</span>
-                    <?php else: ?>
-                        <?= $dataAmount ?>€ / <?= $dataBudget ?>€
-                    <?php endif; ?>
-                </p>
             </div>
             <div class="modal fade" id="editLimitModal<?= $cat['id'] ?>" tabindex="-1">
                 <div class="modal-dialog">

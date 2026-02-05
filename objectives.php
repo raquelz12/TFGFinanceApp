@@ -49,20 +49,26 @@ include 'includes/header.php'; ?>
             <div class="objective-card">
                 <div class="card-header">
                     <h2><?= htmlspecialchars($obj['name']) ?></h2>
-                    <button class="objective-button" title="Editar" data-bs-toggle="modal" data-bs-target="#editModal<?= $obj['id'] ?>">
-                        <i class="fa-solid fa-pencil"></i>
-                    </button>
-                    <button class="objective-button" title="Añadir dinero" data-bs-toggle="modal" data-bs-target="#addMoneyModal<?= $obj['id'] ?>">
-                        <i class="fa-solid fa-piggy-bank"></i>
-                    </button>
-                    <button class="objective-button" title="Eliminar objetivo" data-bs-toggle="modal" data-bs-target="#deleteObjectiveModal<?= $obj['id'] ?>">
-                        <i class="fa-solid fa-trash"></i>
-                    </button>
+                    <div class="objective-buttons">
+                        <button class="objective-button" title="Editar" data-bs-toggle="modal" data-bs-target="#editModal<?= $obj['id'] ?>">
+                            <i class="fa-solid fa-pencil"></i>
+                        </button>
+                        <button class="objective-button" title="Añadir dinero" data-bs-toggle="modal" data-bs-target="#addMoneyModal<?= $obj['id'] ?>">
+                            <i class="fa-solid fa-piggy-bank"></i>
+                        </button>
+                        <button class="objective-button" title="Eliminar objetivo" data-bs-toggle="modal" data-bs-target="#deleteObjectiveModal<?= $obj['id'] ?>">
+                            <i class="fa-solid fa-trash"></i>
+                        </button>
+                    </div>
                 </div>
-                <p class="objective-amount"><?= $dataTarget ?>€ / <?= $dataAmount ?>€</p>
-                <div class="progress">
-                    <div class="progress-bar" style="width: <?= ($dataAmount>0) ? ($dataTarget/$dataAmount*100) : 0 ?>%"></div>
-                </div>
+                <?php if ($dataTarget < $dataAmount): ?>
+                    <p class="objective-amount"><?= $dataTarget ?>€ / <?= $dataAmount ?>€</p>
+                <?php else: ?>
+                    <p class="objective-completed">Has conseguido tu objetivo!</p>
+                <?php endif; ?>
+                    <div class="progress">
+                        <div class="progress-bar" style="width: <?= ($dataAmount>0) ? ($dataTarget/$dataAmount*100) : 0 ?>%"></div>
+                    </div>
                 <p class="objective-date">Fecha objetivo: <?= htmlspecialchars($obj['objective_date']) ?></p>
             </div>
             <div class="modal fade" id="editModal<?= $obj['id'] ?>" tabindex="-1">
@@ -189,11 +195,11 @@ include 'includes/header.php'; ?>
                                     type="text" 
                                     name="name" 
                                     id="name" 
-                                    placeholder="Viaje a Japón (max 50 caracteres)" 
+                                    placeholder="Viaje a Japón (max 30 caracteres)" 
                                     class="form-control mt-2" 
                                     data-required
                                     data-minlength="3"
-                                    data-maxlength="50"
+                                    data-maxlength="30"
                                 >
                                 <label for="targetAmount" class="mt-2">Cantidad objetivo:</label>
                                 <input 

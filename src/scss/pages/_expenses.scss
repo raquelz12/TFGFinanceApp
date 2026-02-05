@@ -2,6 +2,11 @@
 
 .expenses-page {
     min-height: 700px;
+
+    .form-error {
+        margin: 1rem;
+        padding-left: 1rem;
+    }
     
     .expenses-hero {
         padding: 0 2rem;
@@ -85,27 +90,30 @@
     }
 }
 
-.form-error {
-    margin: 1rem;
-}
-
 .button-app {
     margin-top: 0.5rem;
 }
 
 @media (max-width: 600px) {
-    .transaction-header.transaction-item {
+    .expenses-page .transaction-header.transaction-item {
         display: none;
     }
 
-    .transaction-item {
+    .expenses-page .transaction-item {
+         display: grid;
         grid-template-columns: 1fr auto;
+        grid-template-rows: auto;
         grid-template-areas:
             "name actions"
             "category category"
             "amount date";
-        padding: 0.9rem 1rem;
-        row-gap: 0.25rem;
+        align-items: start;
+        gap: .4rem;
+    }
+
+    .transaction-item span:nth-child(1),
+    .transaction-item span:nth-child(2) {
+        width: 100%;
     }
 
     .transaction-item span:nth-child(1) {
@@ -137,6 +145,7 @@
         grid-area: actions;
         display: flex;
         gap: 0.4rem;
+        justify-self: end;
         align-items: center;
     }
 

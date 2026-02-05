@@ -51,15 +51,17 @@
     background: c.$white;
     border-radius: 18px;
     box-shadow: 0 4px 14px rgba(0,0,0,0.08);
-    height: 200px;
+    height: 220px;
     padding: 1.6rem;
     width: 320px;
 
     .card-header {
-        align-items: center;
+        align-items: flex-start;
         display: flex;
+        flex-direction: row;
         justify-content: space-between;
         margin-bottom: 1rem;
+        gap: 2rem;
 
         h2 {
             font-size: 1.2rem;
@@ -83,10 +85,24 @@
             }
         }
     }
+
+    .objective-buttons {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: center;
+    }
     
     .objective-amount {
         font-size: 1.4rem;
         font-weight: 600;
+        margin-bottom: 1rem;
+    }
+
+    .objective-completed {
+        font-size: 1.3rem;
+        font-weight: 600;
+        color: c.$green;
         margin-bottom: 1rem;
     }
     
