@@ -77,7 +77,7 @@ $categories = $stmt->fetchAll(PDO::FETCH_ASSOC);
                         Cancelar
                     </button>
                     <input type="hidden" name="action" value="add">
-                    <button type="submit" class="btn btn-primary">
+                    <button id="saveExpenseButton" type="submit" class="btn btn-primary">
                         Guardar gasto
                     </button>
                 </div>

@@ -123,6 +123,7 @@ include 'includes/header.php';
                                     type="number" 
                                     step="0.01" 
                                     name="amount" 
+                                    id="amount"
                                     placeholder="Límite mensual en €" 
                                     class="form-control" 
                                     value="<?= $cat['amount'] ?>" 
@@ -134,7 +135,7 @@ include 'includes/header.php';
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
                                     Cerrar
                                 </button>
-                                <button type="submit" class="btn btn-primary">
+                                <button id="saveChangesButton" type="submit" class="btn btn-primary">
                                     Guardar
                                 </button>
                             </div>
@@ -171,7 +172,7 @@ include 'includes/header.php';
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
                                     Cancelar
                                 </button>
-                                <button type="submit" class="btn btn-danger">
+                                <button id="deleteCategoryButton" type="submit" class="btn btn-danger">
                                     Eliminar
                                 </button>
                             </div>
@@ -210,7 +211,8 @@ include 'includes/header.php';
                                 <input 
                                     type="number" 
                                     step="0.01" 
-                                    name="amount" 
+                                    name="amount"
+                                    id="amount"
                                     placeholder="€" 
                                     class="form-control mt-2" 
                                     data-required
@@ -221,7 +223,7 @@ include 'includes/header.php';
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
                                     Cerrar
                                 </button>
-                                <button type="submit" class="btn btn-primary">
+                                <button id="addExpenseButton" type="submit" class="btn btn-primary">
                                     Añadir
                                 </button>
                             </div>

@@ -54,7 +54,7 @@ include 'includes/header.php'; ?>
                         disabled
                     >
                 </div>
-                <button class="btn btn-primary">Guardar cambios</button>
+                <button id="saveChangesButton" class="btn btn-primary">Guardar cambios</button>
             </form>
         </section>
         <section class="profile-card">
@@ -117,7 +117,7 @@ include 'includes/header.php'; ?>
                                         data-bs-dismiss="modal">
                                     Cerrar
                                 </button>
-                                <button type="submit" class="button-app">
+                                <button id="savePasswordChangesButton" type="submit" class="button-app">
                                     Guardar cambios
                                 </button>
                             </div>

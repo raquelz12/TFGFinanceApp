@@ -46,7 +46,7 @@ include 'includes/header.php'; ?>
                     data-maxlength="20"
                 >
             </div>
-            <button class="button-app" type="submit">
+            <button id="loginButton" class="button-app" type="submit">
                 Iniciar Sesión
             </button>
         </form>

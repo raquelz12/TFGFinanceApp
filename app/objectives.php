@@ -94,7 +94,8 @@ include 'includes/header.php'; ?>
                                 <input 
                                     type="number" 
                                     step="0.01"
-                                    name="amount" 
+                                    name="amount"
+                                    id="amount"
                                     value="<?= $dataAmount ?>" 
                                     class="form-control" 
                                     data-required
@@ -103,7 +104,7 @@ include 'includes/header.php'; ?>
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                                <button type="submit" class="btn btn-primary">Guardar</button>
+                                <button id="saveChangesButton" type="submit" class="btn btn-primary">Guardar</button>
                             </div>
                         </div>
                     </form>
@@ -133,7 +134,7 @@ include 'includes/header.php'; ?>
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                                <button type="submit" class="btn btn-danger">Eliminar</button>
+                                <button id="deleteObjectiveButton" type="submit" class="btn btn-danger">Eliminar</button>
                             </div>
                         </div>
                     </form>
@@ -163,7 +164,8 @@ include 'includes/header.php'; ?>
                                 <input
                                     type="number" 
                                     step="0.01" 
-                                    name="amount" 
+                                    name="amount"
+                                    id="amount"
                                     placeholder="€" 
                                     class="form-control mt-2" 
                                     data-required 
@@ -172,7 +174,7 @@ include 'includes/header.php'; ?>
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                                <button type="submit" class="btn btn-primary">Añadir</button>
+                                <button id="addMoneyButton" type="submit" class="btn btn-primary">Añadir</button>
                             </div>
                         </div>
                     </form>
@@ -221,7 +223,6 @@ include 'includes/header.php'; ?>
                                     placeholder="€" 
                                     class="form-control mt-2" 
                                     data-required
-                                    data-positive
                                 >
                                 <label for="objective_date" class="mt-2">Fecha objetivo:</label>
                                 <input 
@@ -235,7 +236,7 @@ include 'includes/header.php'; ?>
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                                <button type="submit" class="btn btn-primary">Añadir</button>
+                                <button id="addObjectiveButton" type="submit" class="btn btn-primary">Añadir</button>
                             </div>
                         </div>
                     </form>

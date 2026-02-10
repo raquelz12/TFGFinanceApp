@@ -80,7 +80,7 @@ include 'includes/header.php'; ?>
                     data-maxlength="50"
                 >
             </div>
-            <button class="button-app" type="submit">
+            <button id="registerButton" class="button-app" type="submit">
                 Registrarse
             </button>
         </form>

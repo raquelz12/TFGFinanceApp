@@ -158,6 +158,7 @@ include 'includes/header.php';
                                 <input
                                     type="text"
                                     name="name"
+                                    id="name"
                                     class="form-control"
                                     value="<?= htmlspecialchars($exp['name']) ?>"
                                     data-required
@@ -171,6 +172,7 @@ include 'includes/header.php';
                                     type="number"
                                     step="0.01"
                                     name="amount"
+                                    id="amount"
                                     class="form-control"
                                     value="<?= $exp['amount'] ?>"
                                     data-required
@@ -185,7 +187,7 @@ include 'includes/header.php';
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
                                 Cancelar
                             </button>
-                            <button type="submit" class="btn btn-primary">
+                            <button id="saveChangesButton" type="submit" class="btn btn-primary">
                                 Guardar cambios
                             </button>
                         </div>
@@ -221,7 +223,7 @@ include 'includes/header.php';
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
                                     Cancelar
                                 </button>
-                                <button type="submit" class="btn btn-danger">
+                                <button id="deleteExpenseButton" type="submit" class="btn btn-danger">
                                     Eliminar
                                 </button>
                             </div>
