@@ -44,7 +44,7 @@
                 </div>
                 <?php if (isset($_SESSION['user_id'])): ?>
                 <div class="navbar-add-transaction">
-                    <a class="add-transaction-btn" title="Añadir Gasto" data-bs-toggle="modal" data-bs-target="#ModalAddExpense">
+                    <a id="addExpenseButton" class="add-transaction-btn" title="Añadir Gasto" data-bs-toggle="modal" data-bs-target="#ModalAddExpense">
                         <i class="fa-solid fa-plus"></i>
                     </a>
                 </div>
