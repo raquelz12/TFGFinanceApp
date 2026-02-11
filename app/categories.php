@@ -57,7 +57,7 @@ include 'includes/header.php';
         <?php endif; ?>
     </div>
     <section class="categories-actions">
-        <button class="button-app" data-bs-toggle="modal" data-bs-target="#addCategoryModal">
+        <button id="openAddCategoryModal" class="button-app" data-bs-toggle="modal" data-bs-target="#addCategoryModal">
             + Nueva categoría
         </button>
     </section>
@@ -67,14 +67,30 @@ include 'includes/header.php';
                 $dataAmount = $cat['completed_amount'];
                 $dataBudget = $cat['amount'];
             ?>
-            <div class="category-progress">
+            <div 
+                class="category-progress"
+                data-category-id="<?= $cat['id'] ?>"
+                data-category-name="<?= htmlspecialchars($cat['name']) ?>"
+            >
                 <div class="card-header">
                     <h2><?= htmlspecialchars($cat['name']); ?></h2>
                     <div class="category-buttons">
-                        <button class="category-button" title="Editar límite mensual" data-bs-toggle="modal" data-bs-target="#editLimitModal<?= $cat['id'] ?>">
+                        <button 
+                            class="category-button edit-category-button"
+                            data-category-id="<?= $cat['id'] ?>"
+                            data-category-name="<?= htmlspecialchars($cat['name']) ?>"
+                            data-bs-toggle="modal" 
+                            data-bs-target="#editLimitModal<?= $cat['id'] ?>"
+                        >
                             <i class="fa-solid fa-pencil"></i>
                         </button>
-                        <button class="category-button" title="Eliminar categoría" data-bs-toggle="modal" data-bs-target="#deleteCategoryModal<?= $cat['id'] ?>">
+                        <button 
+                            class="category-button delete-category-button"
+                            data-category-id="<?= $cat['id'] ?>"
+                            data-category-name="<?= htmlspecialchars($cat['name']) ?>"
+                            data-bs-toggle="modal" 
+                            data-bs-target="#deleteCategoryModal<?= $cat['id'] ?>"
+                        >
                             <i class="fa-solid fa-trash"></i>
                         </button>
                     </div>
@@ -123,9 +139,9 @@ include 'includes/header.php';
                                     type="number" 
                                     step="0.01" 
                                     name="amount" 
-                                    id="amount"
+                                    id="editAmount<?= $cat['id'] ?>"
+                                    class="edit-amount-input form-control"
                                     placeholder="Límite mensual en €" 
-                                    class="form-control" 
                                     value="<?= $cat['amount'] ?>" 
                                     data-required
                                     data-positive
@@ -135,7 +151,11 @@ include 'includes/header.php';
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
                                     Cerrar
                                 </button>
-                                <button id="saveChangesButton" type="submit" class="btn btn-primary">
+                                <button 
+                                    type="submit" 
+                                    class="btn btn-primary confirm-edit-category"
+                                    data-category-id="<?= $cat['id'] ?>"
+                                >
                                     Guardar
                                 </button>
                             </div>
@@ -172,7 +192,11 @@ include 'includes/header.php';
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
                                     Cancelar
                                 </button>
-                                <button id="deleteCategoryButton" type="submit" class="btn btn-danger">
+                                <button 
+                                    type="submit" 
+                                    class="btn btn-danger confirm-delete-category"
+                                    data-category-id="<?= $cat['id'] ?>"
+                                >
                                     Eliminar
                                 </button>
                             </div>
@@ -200,7 +224,7 @@ include 'includes/header.php';
                             <div class="form-error" style="display:none;"></div>
                             <div class="modal-body">
                                 <label for="category_id">Categoría:</label>
-                                <select name="category_id" class="form-control mt-2" required>
+                                <select id="categorySelect" name="category_id" class="form-control mt-2" required>
                                     <option value="">Selecciona categoría</option>
                                     <?php foreach ($available_categories as $baseCat): ?>
                                         <option value="<?= $baseCat['id'] ?>"><?= htmlspecialchars($baseCat['name']) ?>
@@ -212,7 +236,7 @@ include 'includes/header.php';
                                     type="number" 
                                     step="0.01" 
                                     name="amount"
-                                    id="amount"
+                                    id="categoryAmount"
                                     placeholder="€" 
                                     class="form-control mt-2" 
                                     data-required
@@ -223,7 +247,7 @@ include 'includes/header.php';
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
                                     Cerrar
                                 </button>
-                                <button id="addExpenseButton" type="submit" class="btn btn-primary">
+                                <button id="confirmAddCategoryButton" type="submit" class="btn btn-primary">
                                     Añadir
                                 </button>
                             </div>

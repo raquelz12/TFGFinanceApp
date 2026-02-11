@@ -1,2 +1,0 @@
-Para inicializar en la terminal el scss:
-npm run sass:watch

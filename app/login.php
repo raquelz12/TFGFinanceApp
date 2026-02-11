@@ -12,7 +12,7 @@ include 'includes/header.php'; ?>
         <div class="login-message">
             <?php
             if (isset($_SESSION['message'])) {
-                echo '<p class="message">' . htmlspecialchars($_SESSION['message']) . '</p>';
+                echo '<p class="form_error">' . htmlspecialchars($_SESSION['message']) . '</p>';
                 unset($_SESSION['message']);
             }
             ?>
