@@ -18,6 +18,12 @@ class LoginPage:
         self.driver.get(self.URL)
 
     def login(self, email, password):
-        self.wait.until(EC.visibility_of_element_located(self.EMAIL)).send_keys(email)
-        self.wait.until(EC.visibility_of_element_located(self.PASSWORD)).send_keys(password)
-        self.wait.until(EC.element_to_be_clickable(self.SUBMIT)).click()
+        self.wait.until(
+            EC.visibility_of_element_located(self.EMAIL)
+        ).send_keys(email)
+        self.wait.until(
+            EC.visibility_of_element_located(self.PASSWORD)
+        ).send_keys(password)
+        self.wait.until(
+            EC.element_to_be_clickable(self.SUBMIT)
+        ).click()
