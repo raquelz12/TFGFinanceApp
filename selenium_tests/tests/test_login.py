@@ -6,7 +6,7 @@ from selenium.webdriver.support import expected_conditions as EC
 def test_login_correcto(driver):
     login = LoginPage(driver)
     login.open()
-    login.login("raquel@gmail.com", "Raquel5477")
+    login.login("test@test.test", "Test1234")
 
     wait = WebDriverWait(driver, 10)
     logout_btn = wait.until(
