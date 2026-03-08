@@ -3,7 +3,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
-def test_login_correcto(driver):
+def test_correct_login(driver):
     login = LoginPage(driver)
     login.open()
     login.login("test@test.test", "Test1234")
@@ -16,7 +16,7 @@ def test_login_correcto(driver):
     assert logout_btn.is_displayed()
 
 
-def test_login_incorrecto(driver):
+def test_incorrect_login(driver):
     login = LoginPage(driver)
     login.open()
     login.login("usuario@gmail.com", "contraseñaIncorrecta")
@@ -28,7 +28,7 @@ def test_login_incorrecto(driver):
 
     assert error_message.is_displayed()
 
-def test_acceso_sin_login(driver):
+def test_no_access_to_dashboard(driver):
     driver.get("http://localhost/TFGFinanceApp/app/app_dashboard.php")
 
     assert "login" in driver.current_url.lower()

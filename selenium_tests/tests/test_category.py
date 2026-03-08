@@ -1,37 +1,82 @@
-def test_add_category(category_page):
+import pytest
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.common.by import By
+from pages.category_page import CategoryPage
+from pages.login_page import LoginPage
 
-    category_name = "Viajes"
+@pytest.fixture
+def logged_user(driver):
+    login = LoginPage(driver)
+    login.open()
+    login.login("test@test.test", "Test1234")
 
-    if not category_page.category_exists(category_name):
-        category_page.add_category_by_name(category_name, amount="150")
+    wait = WebDriverWait(driver, 10)
+    wait.until(lambda d: "login" not in d.current_url)
 
-    assert category_page.category_exists(category_name)
+    return driver
 
+def category_exists(page, category_name="Alimentación"):
+    page.open()
+    if not page.category_exists(category_name):
+        page.add_category(category_text=category_name, amount="100")
 
-def test_edit_category(category_page):
+def test_open_category_page(logged_user):
+    driver = logged_user
+    page = CategoryPage(driver)
+    
+    page.open()
 
-    category_name = "Ocio"
+    wait = WebDriverWait(driver, 10)
+    assert wait.until(
+        EC.visibility_of_element_located(page.OPEN_ADD_MODAL)
+    ).is_displayed()
 
-    if not category_page.category_exists(category_name):
-        category_page.add_category_by_name(category_name, amount="100")
+def test_add_category(logged_user):
+    driver = logged_user
+    page = CategoryPage(driver)
+    page.open()
 
-    old_budget = category_page.get_category_amount(category_name)
+    if page.category_exists("Alimentación"):
+        page.delete_category("Alimentación")
 
-    category_page.edit_category(category_name, new_amount="300")
+    page.add_category(category_text="Alimentación", amount="100")
 
-    new_budget = category_page.get_category_amount(category_name)
+    assert page.category_exists("Alimentación")
 
-    assert new_budget == "300"
-    assert new_budget != old_budget
+def test_edit_category(logged_user):
+    driver = logged_user
+    page = CategoryPage(driver)
+    page.open()
 
+    category_name = "Alimentación"
+    category_exists(page, category_name)
 
-def test_delete_category(category_page):
+    page.edit_category(category_name, new_amount="200")
 
-    category_name = "Tecnología"
+    new_amount = page.get_category_amount(category_name)
+    assert new_amount == "200.00"
 
-    if not category_page.category_exists(category_name):
-        category_page.add_category_by_name(category_name, amount="120")
+def test_delete_category(logged_user):
+    driver = logged_user
+    page = CategoryPage(driver)
+    page.open()
 
-    category_page.delete_category(category_name)
+    category_name = "Alimentación"
+    category_exists(page, category_name)
 
-    assert not category_page.category_exists(category_name)
+    page.delete_category(category_name)
+
+    assert not page.category_exists(category_name)
+
+def test_category_over_budget(logged_user):
+    driver = logged_user
+    page = CategoryPage(driver)
+    page.open()
+
+    category_name = "Alimentación"
+    category_exists(page, category_name)
+
+    is_over_budget = page.is_category_over_budget(category_name)
+    
+    assert isinstance(is_over_budget, bool)
