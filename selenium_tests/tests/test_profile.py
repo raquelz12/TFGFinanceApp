@@ -16,12 +16,12 @@ def logged_user(driver):
 def test_open_profile_page(logged_user):
     page = ProfilePage(logged_user)
     page.open()
-    assert "profile" in logged_user.current_url
+    assert "profile" in logged_user.current_url, f"No se ha podido abrir la página de perfil"
 
 def test_email_is_disabled(logged_user):
     page = ProfilePage(logged_user)
     page.open()
-    assert page.is_email_disabled()
+    assert page.is_email_disabled(), f"No se ha podido deshabilitar el correo electrónico"
 
 def test_update_name(logged_user):
     page = ProfilePage(logged_user)
@@ -33,12 +33,12 @@ def test_update_name(logged_user):
     page.update_name(new_name)
     
     page.open()
-    assert page.get_name() == new_name
+    assert page.get_name() == new_name, f"No se ha podido actualizar el nombre"
     
     page.update_name(name)
     
     page.open()
-    assert page.get_name() == name
+    assert page.get_name() == name, f"No se ha podido revertir el nombre"
 
 def test_password_change(logged_user):
     driver = logged_user
@@ -57,7 +57,7 @@ def test_password_change(logged_user):
         wait = WebDriverWait(driver, 10)
         wait.until(lambda d: "login" not in d.current_url)
         
-        assert "dashboard" in driver.current_url or "profile" in driver.current_url
+        assert "dashboard" in driver.current_url or "profile" in driver.current_url, f"No se ha podido iniciar sesión con la nueva contraseña"
         
     finally:
         driver.get(ProfilePage.URL)
@@ -69,7 +69,7 @@ def test_password_error(logged_user):
     
     page.attempt_password_change("Test1234", "Nueva1234", "Distinta1234")
     
-    assert "profile" in logged_user.current_url
+    assert "profile" in logged_user.current_url, f"No se ha permanecido en la página de perfil tras error de contraseña"
 
 def test_logout(logged_user):
     page = ProfilePage(logged_user)
@@ -77,4 +77,4 @@ def test_logout(logged_user):
     
     page.logout()
     
-    assert "login" in logged_user.current_url
+    assert "login" in logged_user.current_url, f"No se ha redirigido a la página de login tras cerrar sesión"

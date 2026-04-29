@@ -49,12 +49,10 @@ class ObjectivesPage:
         
         self.driver.find_element(*self.ADD_DATE_INPUT).send_keys(date_str)
         
-        self.driver.find_element(*self.ADD_SUBMIT_BTN).click()
+        submit_btn = self.driver.find_element(*self.ADD_SUBMIT_BTN)
+        submit_btn.click()
         
-        self.wait.until(
-            EC.invisibility_of_element_located(self.ADD_SUBMIT_BTN)
-        )
-        time.sleep(0.5)
+        self.wait.until(EC.staleness_of(submit_btn))
 
     def edit_objective_target(self, objective_name, new_target):
         xpath_btn = f"//div[contains(@class, 'objective-card') and .//h2[text()='{objective_name}']]//button[@title='Editar']"
@@ -69,15 +67,10 @@ class ObjectivesPage:
         amount_input.clear()
         amount_input.send_keys(new_target)
 
-        save_btn = self.wait.until(
-            EC.element_to_be_clickable(self.EDIT_SUBMIT_ACTIVE)
-        )
+        save_btn = self.wait.until(EC.element_to_be_clickable(self.EDIT_SUBMIT_ACTIVE))
         save_btn.click()
 
-        self.wait.until(
-            EC.invisibility_of_element_located(self.EDIT_SUBMIT_ACTIVE)
-        )
-        time.sleep(0.5)
+        self.wait.until(EC.staleness_of(save_btn))
         
     def add_money_to_objective(self, objective_name, amount_to_add):
         xpath_btn = f"//div[contains(@class, 'objective-card') and .//h2[text()='{objective_name}']]//button[@title='Añadir dinero']"
@@ -92,15 +85,10 @@ class ObjectivesPage:
         amount_input.clear()
         amount_input.send_keys(amount_to_add)
 
-        save_btn = self.wait.until(
-            EC.element_to_be_clickable(self.ADD_MONEY_SUBMIT_ACTIVE)
-        )
+        save_btn = self.wait.until(EC.element_to_be_clickable(self.ADD_MONEY_SUBMIT_ACTIVE))
         save_btn.click()
 
-        self.wait.until(
-            EC.invisibility_of_element_located(self.ADD_MONEY_SUBMIT_ACTIVE)
-        )
-        time.sleep(0.5)
+        self.wait.until(EC.staleness_of(save_btn))
 
     def delete_objective(self, objective_name):
         xpath_btn = f"//div[contains(@class, 'objective-card') and .//h2[text()='{objective_name}']]//button[@title='Eliminar objetivo']"
@@ -114,10 +102,7 @@ class ObjectivesPage:
         )
         confirm_btn.click()
         
-        self.wait.until(
-            EC.invisibility_of_element_located(self.DELETE_CONFIRM_ACTIVE)
-        )
-        time.sleep(0.5)
+        self.wait.until(EC.staleness_of(confirm_btn))
 
     def objective_exists(self, objective_name):
         try:
