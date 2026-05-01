@@ -36,8 +36,8 @@ class CategoryPage:
         
         self.wait.until(EC.element_to_be_clickable(self.ADD_SUBMIT)).click()
         
-        self.wait.until(EC.visibility_of_element_located(self.MESSAGE))
         time.sleep(0.5)
+        self.wait.until(EC.visibility_of_element_located(self.MESSAGE))
 
     def edit_category(self, category_name, new_amount="150"):
         xpath_edit_btn = f"(//button[contains(@class, 'edit-category-button') and @data-category-name='{category_name}'])[1]"
@@ -51,8 +51,8 @@ class CategoryPage:
         save_btn = self.wait.until(EC.element_to_be_clickable(self.EDIT_SUBMIT_ACTIVE))
         save_btn.click()
 
-        self.wait.until(EC.visibility_of_element_located(self.MESSAGE))
         time.sleep(0.5)
+        self.wait.until(EC.visibility_of_element_located(self.MESSAGE))
     
     def delete_category(self, category_name):
         xpath_delete_btn = f"(//button[contains(@class, 'delete-category-button') and @data-category-name='{category_name}'])[1]"
@@ -62,8 +62,8 @@ class CategoryPage:
         confirm_btn = self.wait.until(EC.element_to_be_clickable(self.DELETE_CONFIRM_ACTIVE))
         confirm_btn.click()
         
-        self.wait.until(EC.visibility_of_element_located(self.MESSAGE))
         time.sleep(0.5)
+        self.wait.until(EC.visibility_of_element_located(self.MESSAGE))
 
     def category_exists(self, category_name):
         try:

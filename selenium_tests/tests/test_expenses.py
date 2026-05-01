@@ -1,10 +1,9 @@
-from time import time
-
 import pytest
 from selenium.webdriver.support.ui import WebDriverWait
 from pages.login_page import LoginPage
 from pages.expense_page import ExpensesPage
 from pages.category_page import CategoryPage
+import time
 
 @pytest.fixture
 def logged_user(driver):
