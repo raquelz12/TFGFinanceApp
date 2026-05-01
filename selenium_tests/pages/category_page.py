@@ -5,7 +5,7 @@ from selenium.webdriver.support.ui import WebDriverWait, Select
 from selenium.webdriver.support import expected_conditions as EC
 
 class CategoryPage:
-    URL = "http://localhost/TFGFinanceApp/app/categories.php"
+    URL = "http://host.docker.internal/TFGFinanceApp/app/categories.php"
 
     OPEN_ADD_MODAL = (By.ID, "openAddCategoryModal")
     MESSAGE = (By.CLASS_NAME, "message")

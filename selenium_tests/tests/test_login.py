@@ -29,6 +29,6 @@ def test_incorrect_login(driver):
     assert error_message.is_displayed(), "No se mostró el mensaje de error para credenciales incorrectas."
 
 def test_no_access_to_dashboard(driver):
-    driver.get("http://localhost/TFGFinanceApp/app/app_dashboard.php")
+    driver.get("http://host.docker.internal/TFGFinanceApp/app/app_dashboard.php")
 
     assert "login" in driver.current_url.lower(), "El usuario no debería tener acceso a la dashboard sin iniciar sesión."
