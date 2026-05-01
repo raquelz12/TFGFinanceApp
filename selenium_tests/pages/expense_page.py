@@ -4,7 +4,7 @@ from selenium.webdriver.support import expected_conditions as EC
 import time
 
 class ExpensesPage:
-    URL = "http://localhost/TFGFinanceApp/app/expenses.php"
+    URL = "http://host.docker.internal/TFGFinanceApp/app/expenses.php"
 
     OPEN_ADD_MODAL = (By.CSS_SELECTOR, "button[data-bs-target='#ModalAddExpense']")
     

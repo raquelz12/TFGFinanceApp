@@ -4,7 +4,7 @@ from selenium.webdriver.support import expected_conditions as EC
 import time
 
 class ObjectivesPage:
-    URL = "http://localhost/TFGFinanceApp/app/objectives.php"
+    URL = "http://host.docker.internal/TFGFinanceApp/app/objectives.php"
 
     OPEN_ADD_MODAL = (By.CSS_SELECTOR, "button[data-bs-target='#addObjectiveModal']")
     

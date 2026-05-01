@@ -3,7 +3,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
 class LoginPage:
-    URL = "http://localhost/TFGFinanceApp/app/login.php"
+    URL = "http://host.docker.internal/TFGFinanceApp/app/login.php"
 
     EMAIL = (By.ID, "email")
     PASSWORD = (By.ID, "password")

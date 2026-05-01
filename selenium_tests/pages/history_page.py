@@ -3,7 +3,7 @@ from selenium.webdriver.support.ui import WebDriverWait, Select
 from selenium.webdriver.support import expected_conditions as EC
 
 class HistoryPage:
-    URL = "http://localhost/TFGFinanceApp/app/history.php"
+    URL = "http://host.docker.internal/TFGFinanceApp/app/history.php"
 
     ORDER_SELECT = (By.ID, "order")
     HISTORY_CARD = (By.CLASS_NAME, "history-card")
