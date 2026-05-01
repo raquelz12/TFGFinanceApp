@@ -11,8 +11,8 @@ def get_driver():
     options.add_argument("--disable-dev-shm-usage")
     options.add_argument("--window-size=1920,1080")
 
-    chrome_options.binary_location = "/usr/bin/chromium"
+    options.binary_location = "/usr/bin/chromium"
     service = Service("/usr/bin/chromedriver")
-    driver = webdriver.Chrome(service=service, options=chrome_options)
-    
+    driver = webdriver.Chrome(service=service, options=options)
+
     return driver
