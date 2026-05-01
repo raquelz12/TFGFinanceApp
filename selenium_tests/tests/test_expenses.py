@@ -44,6 +44,7 @@ def test_add_expense(logged_user):
     if page.expense_exists(expense_name):
         page.delete_expense(expense_name)
 
+    time.sleep(1)
     page.add_expense(expense_name, amount, test_category)
 
     assert page.expense_exists(expense_name), f"No se pudo añadir el gasto."
@@ -66,6 +67,7 @@ def test_edit_expense(logged_user):
     if not page.expense_exists(expense_name):
         page.add_expense(expense_name, "10.00", test_category)
 
+    time.sleep(1)
     page.edit_expense(expense_name, new_expense_name, "20.00")
 
     assert not page.expense_exists(expense_name), f"No se pudo editar el gasto, el nombre antiguo sigue existiendo."
