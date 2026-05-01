@@ -80,7 +80,6 @@ include 'includes/header.php';
                         </p>
                     </div>
                     <div class="history-footer">
-                        <button type="button">Boton de prueba</button>
                         <button 
                             onclick="window.location.href='history_detailed.php?year=<?= $row['year'] ?>&month=<?= $row['month'] ?>'"
                             class="button-app"
