@@ -2,3 +2,4 @@ Para inicializar en la terminal el scss:
 npm run sass:watch
 Para iniciar venv:
 venv\Scripts\Activate
+***Prueba cambio***
