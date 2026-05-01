@@ -1,0 +1,197 @@
+@use "../base/colors" as c;
+
+.dashboard {
+    .dashboard-hero {
+        padding: 0 2rem;
+        margin-top: 3rem;
+
+        h1 {
+            font-size: 2.1rem;
+            font-weight: 700;
+            margin: 0;
+        }
+
+        p {
+            margin-top: .5rem;
+        }
+    }
+
+    .cards-section {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1.5rem;
+        justify-content: center;
+        margin: 0 2rem;
+        padding: 0 2rem;
+        flex-direction: row;
+    }
+
+    .card {
+        background: c.$white;
+        border-radius: 18px;
+        border: none;
+        box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+        flex: 1;
+        max-width: 330px;
+        min-width: 260px;
+        padding: 1.6rem;
+
+        h2 {
+            font-size: 1.1rem;
+            color: c.$light-grey;
+        }
+
+        p {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-top: 0.8rem;
+        }
+
+        .card-title {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+        }
+
+        .text {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-top: 0.8rem;
+        }
+
+        .custom-popover {
+            max-width: 250px;
+            font-size: 0.9rem;
+
+            .popover-header {
+                background-color: c.$primary-blue;
+                color: c.$white;
+                font-weight: 600;
+            }
+
+            .popover-body {
+                color: c.$dark-grey;
+            }
+        }
+
+        .info-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: none;
+            border: none;
+            padding: 0;
+            margin: 0;
+            color: c.$primary-blue;
+            font-size: 1.2rem;
+            cursor: pointer;
+
+            &:hover {
+                color: c.$dark-blue;
+            }
+        }
+
+    }
+
+    .card-body h2 {
+        font-size: 1.1rem;
+        color: c.$light-grey;
+    }
+
+    .amount {
+        font-size: 2rem;
+        font-weight: 700;
+        margin-top: .8rem;
+    }
+
+    .amount.negative {
+        color: c.$red;
+    }
+
+    .amount.positive {
+        color: c.$green;
+    }
+
+    .chart-section {
+        margin-top: 3rem;
+        padding: 0 2rem;
+    }
+
+    .chart-card {
+        background: c.$white;
+        border-radius: 18px;
+        box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+        padding: 2rem;
+    }
+
+    .chart-wrapper {
+        align-items: center;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: flex-start;
+    }
+
+    @media (min-width: 1440px) {
+        .chart-wrapper {
+            flex-wrap: nowrap;
+        }
+    }
+
+    .chart-stats {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 15px;
+        justify-content: center;
+    }
+
+    .transactions-section {
+        margin-top: 3rem;
+        padding: 0 2rem 3rem;
+        margin-bottom: 5rem;
+    }
+
+    .transactions-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .transaction-list {
+        margin-top: 1.4rem;
+    }
+
+    .transaction-item {
+        background: c.$white;
+        padding: 1rem 1.2rem;
+        border-radius: 12px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.07);
+        margin-bottom: .8rem;
+    }
+}
+
+.t-cat {
+    color: c.$light-grey;
+}
+
+.t-amount {
+    font-weight: bold;
+    color: c.$red;
+}
+
+
+.blurred {
+  filter: blur(5px);
+  pointer-events: none;
+  user-select: none;
+}
+
+.view-more-btn {
+    display: block;
+    margin: 1.5rem auto 0 auto;
+}

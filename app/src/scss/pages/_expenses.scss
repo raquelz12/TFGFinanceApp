@@ -1,0 +1,155 @@
+@use "../base/colors" as c;
+
+.expenses-page {
+    min-height: 700px;
+
+    .form-error {
+        margin: 1rem;
+        padding-left: 1rem;
+    }
+    
+    .expenses-hero {
+        padding: 0 2rem;
+        margin-top: 3rem;
+
+        h2 {
+            font-size: 2.1rem;
+            font-weight: 700;
+            margin: 0;
+        }
+
+        p {
+            margin-top: .5rem;
+        }
+    }
+
+    .transactions-section {
+        padding: 0 2rem 3rem;
+        margin-bottom: 5rem;
+    }
+
+    .transaction-header {
+        align-items: center;
+        color: c.$primary-blue;
+        display: flex;
+        font-weight: bold;
+        justify-content: space-between;
+
+        a {
+            text-decoration: none;
+        }
+    }
+
+    .transaction-list {
+        margin-top: 1.4rem;
+    }
+
+    .transaction-item {
+        align-items: center;
+        background: c.$white;
+        border-radius: 12px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.07);
+        display: grid;
+        gap: 1rem;
+        grid-template-columns: 2fr 2fr 1fr 1.5fr 1.5fr;
+        justify-content: space-between;
+        margin-bottom: .8rem;
+        padding: 1rem 1.2rem;
+
+        .expense-button {
+            aspect-ratio: 1/1;
+            background: none;
+            border-radius: 50%;
+            border: none;
+            font-size: 1.2rem;
+            transition: 0.2s;
+            
+            &:hover {
+                background-color: color-mix(
+                in srgb,
+                c.$primary-blue 15%,
+                transparent
+                );
+            }
+        }
+    }
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+
+    a {
+        margin: 0 5px;
+        text-decoration: none;
+    }
+
+    .active {
+        font-weight: bold;
+    }
+}
+
+.button-app {
+    margin-top: 0.5rem;
+}
+
+@media (max-width: 600px) {
+    .expenses-page .transaction-header.transaction-item {
+        display: none;
+    }
+
+    .expenses-page .transaction-item {
+         display: grid;
+        grid-template-columns: 1fr auto;
+        grid-template-rows: auto;
+        grid-template-areas:
+            "name actions"
+            "category category"
+            "amount date";
+        align-items: start;
+        gap: .4rem;
+    }
+
+    .transaction-item span:nth-child(1),
+    .transaction-item span:nth-child(2) {
+        width: 100%;
+    }
+
+    .transaction-item span:nth-child(1) {
+        grid-area: name;
+        font-weight: 600;
+        font-size: 1rem;
+    }
+
+    .transaction-item span:nth-child(2) {
+        grid-area: category;
+        font-size: 0.85rem;
+        color: #888;
+    }
+
+    .transaction-item span:nth-child(3) {
+        grid-area: amount;
+        font-size: 1rem;
+        font-weight: 600;
+        justify-self: start;
+    }
+
+    .transaction-item span:nth-child(4) {
+        grid-area: date;
+        font-size: 0.85rem;
+        color: #555;
+    }
+
+    .transaction-item span:nth-child(5) {
+        grid-area: actions;
+        display: flex;
+        gap: 0.4rem;
+        justify-self: end;
+        align-items: center;
+    }
+
+    .expense-button {
+        font-size: 1rem;
+    }
+}

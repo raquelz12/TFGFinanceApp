@@ -1,0 +1,141 @@
+@use "../base/colors" as c;
+
+.objectives-page {
+  padding: 0 2rem;
+  margin-top: 3rem;
+  min-height: 700px;
+}
+
+.objectives-hero {
+  h1 {
+    font-size: 2.1rem;
+    font-weight: 700;
+  }
+  
+  p {
+    margin-top: .5rem;
+  }
+}
+
+.objectives-actions {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.objectives-message {
+    margin-bottom: 1rem;
+    color: c.$red;
+    font-weight: 600;
+}
+
+.objectives-list {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    
+    .objectives {
+        align-items: center;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        gap: 2rem;
+
+        @media (max-width: 700px) {
+            flex-direction: column;
+        }   
+    }
+}
+
+.objective-card {
+    background: c.$white;
+    border-radius: 18px;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+    height: 220px;
+    padding: 1.6rem;
+    width: 320px;
+
+    .card-header {
+        align-items: flex-start;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin-bottom: 1rem;
+        gap: 2rem;
+
+        h2 {
+            font-size: 1.2rem;
+            margin-bottom: .5rem;
+        }
+
+        .objective-button {
+            aspect-ratio: 1/1;
+            background: none;
+            border-radius: 50%;
+            border: none;
+            font-size: 1.2rem;
+            transition: 0.2s;
+            
+            &:hover {
+                background-color: color-mix(
+                in srgb,
+                c.$primary-blue 15%,
+                transparent
+                );
+            }
+        }
+    }
+
+    .objective-buttons {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: center;
+    }
+    
+    .objective-amount {
+        font-size: 1.4rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+    }
+
+    .objective-completed {
+        font-size: 1.3rem;
+        font-weight: 600;
+        color: c.$green;
+        margin-bottom: 1rem;
+    }
+    
+    .progress {
+        height: 10px;
+        border-radius: 10px;
+        background: #e9ecef;
+        overflow: hidden;
+        margin-bottom: 1rem;
+        
+        .progress-bar {
+            height: 100%;
+            background: c.$green;
+        }
+    }
+    
+    .objective-date {
+        font-size: .9rem;
+        color: c.$light-grey;
+        margin-bottom: 1rem;
+    }
+}
+
+.add-objective-button-container {
+    display: flex;
+    justify-content: center;
+    margin: 2rem;
+    
+    .add-objective-button {
+        aspect-ratio: 1/1;
+        width: 60px;
+        font-size: 1.5rem;
+        border-radius: 50%;
+        padding: 0;
+    }
+}
