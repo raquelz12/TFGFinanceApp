@@ -4,7 +4,7 @@ from selenium.webdriver.support import expected_conditions as EC
 import time
 
 class ProfilePage:
-    URL = "http://host.docker.internal/TFGFinanceApp/app/categories.php"
+    URL = "http://host.docker.internal/TFGFinanceApp/app/profile.php"
 
     NAME_INPUT = (By.CSS_SELECTOR, ".profile-page #name")
     EMAIL_INPUT = (By.CSS_SELECTOR, ".profile-page #email")

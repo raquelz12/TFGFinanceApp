@@ -1,3 +1,5 @@
+from time import time
+
 import pytest
 from selenium.webdriver.support.ui import WebDriverWait
 from pages.login_page import LoginPage
@@ -87,6 +89,7 @@ def test_delete_expense(logged_user):
     if not page.expense_exists(expense_name):
         page.add_expense(expense_name, "5.00", test_category)
 
+    time.sleep(1)
     page.delete_expense(expense_name)
 
     assert not page.expense_exists(expense_name), f"No se pudo borrar el gasto."
