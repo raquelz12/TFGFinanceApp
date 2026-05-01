@@ -1,0 +1,14 @@
+@use "base/colors" as c;
+@use "base/fonts" as f;
+@use "layout/header" as header;
+@use "layout/footer" as footer;
+@use "pages/home" as home;
+@use "pages/login" as login;
+@use "pages/contact" as contact;
+@use "pages/dashboard" as dashboard;
+
+body {
+  font-family: f.$font-primary;
+  background-color: c.$very-light-grey;
+  color: c.$dark-grey;
+}

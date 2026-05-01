@@ -1,6 +1,1 @@
 node_modules
-venv
-__pycache__
-*.pyc
-selenium_tests/tests/__pycache__
-selenium_tests/pages/__pycache__
