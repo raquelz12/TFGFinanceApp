@@ -92,6 +92,8 @@ class ExpensesPage:
         )
         confirm.click()
         
+        time.sleep(0.5)
+        
         self.wait.until(
             EC.invisibility_of_element_located(self.DELETE_CONFIRM_BTN)
         )
