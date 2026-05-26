@@ -86,6 +86,7 @@ include 'includes/header.php';
                         >
                             Ver detalle
                         </button>
+                        <button type="button">Prueba</button>
                     </div>
                 </div>
                 <?php endforeach; ?>
