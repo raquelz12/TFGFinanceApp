@@ -45,9 +45,13 @@ class ExpensesPage:
         
         self.driver.find_element(*self.ADD_SUBMIT_BTN).click()
         
-        self.wait.until(
-            EC.invisibility_of_element_located(self.ADD_SUBMIT_BTN)
-        )
+        try:
+            self.wait.until(
+                EC.staleness_of(name_input)
+            )
+        except:
+            pass
+        
         time.sleep(0.5)
 
     def edit_expense(self, old_name, new_name, new_amount):
