@@ -94,7 +94,7 @@ class ObjectivesPage:
         self.wait.until(EC.staleness_of(save_btn))
 
     def delete_objective(self, objective_name):
-        xpath_btn = f"//div[contains(@class, 'objective-card') and .//h2[normalize-space(text())='{objective_name}']]//button[@title='Eliminar objetivo']"
+        xpath_btn = f"//div[contains(@class, 'objective-card') and .//h2[text()='{objective_name}']]//button[@title='Eliminar objetivo']"
         delete_button = self.wait.until(
             EC.element_to_be_clickable((By.XPATH, xpath_btn))
         )
@@ -110,7 +110,7 @@ class ObjectivesPage:
 
     def objective_exists(self, objective_name):
         try:
-            xpath = f"//div[contains(@class, 'objective-card') and .//h2[normalize-space(text())='{objective_name}']]"
+            xpath = f"//div[contains(@class, 'objective-card') and .//h2[text()='{objective_name}']]"
             WebDriverWait(self.driver, 2).until(
                 EC.presence_of_element_located((By.XPATH, xpath))
             )
