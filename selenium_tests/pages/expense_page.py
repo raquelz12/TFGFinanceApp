@@ -73,6 +73,7 @@ class ExpensesPage:
         save_btn = self.wait.until(EC.element_to_be_clickable(self.EDIT_SUBMIT_BTN))
         save_btn.click()
         
+        time.sleep(0.5)
         self.wait.until(
             EC.invisibility_of_element_located(self.EDIT_SUBMIT_BTN)
         )
