@@ -69,7 +69,7 @@ def test_delete_objective(logged_user):
     page = ObjectivesPage(logged_user)
     page.open()
     
-    name = "Viaje a Japón"
+    name = "Viaje"
     
     if not page.objective_exists(name):
         page.add_objective(name=name, target="1000", initial="100", date_str="31122025")
