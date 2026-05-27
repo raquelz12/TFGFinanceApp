@@ -88,7 +88,7 @@ include 'includes/header.php';
                             class="button-app"
                         >
                             Ver detalle
-                            Test 1
+                            Test 2
                         </button>
                     </div>
                 </div>
