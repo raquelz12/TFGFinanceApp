@@ -70,4 +70,4 @@ def test_export_csv_button_exists(logged_user):
     export_btn = logged_user.find_elements(By.ID, "exportCsvBtn")
     assert len(export_btn) > 0, "El botón 'Exportar CSV' no existe en la página de historial"
 
-    expenses.delete_expense("Gasto Historial")
+    ExpensesPage(logged_user).delete_expense("Gasto Historial")
