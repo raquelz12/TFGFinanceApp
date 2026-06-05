@@ -251,6 +251,9 @@ include 'includes/header.php'; ?>
         <button type="button" class="button-app view-more-btn" onclick="window.location.href='expenses.php'">
             Ver más gastos
         </button>
+        <button type="button">
+            Test
+        </button>
     </section>
 </main>
 
