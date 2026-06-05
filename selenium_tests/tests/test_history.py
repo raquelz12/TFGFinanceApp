@@ -42,6 +42,10 @@ def test_view_detail(logged_user):
         page.click_first_detail()
         assert "history_detailed" in logged_user.current_url, f"No se ha redirigido a la página de detalle del historial"
 
+    expenses.open()
+    expenses.eliminar_gasto("Gasto Historial")
+
+
 def test_dead_buttons(logged_user):
     page = HistoryPage(logged_user)
     page.open()
@@ -69,5 +73,3 @@ def test_export_csv_button_exists(logged_user):
 
     export_btn = logged_user.find_elements(By.ID, "exportCsvBtn")
     assert len(export_btn) > 0, "El botón 'Exportar CSV' no existe en la página de historial"
-
-    ExpensesPage(logged_user).delete_expense("Gasto Historial")
