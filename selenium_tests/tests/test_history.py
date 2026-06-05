@@ -43,7 +43,7 @@ def test_view_detail(logged_user):
         assert "history_detailed" in logged_user.current_url, f"No se ha redirigido a la página de detalle del historial"
 
     expenses.open()
-    expenses.eliminar_gasto("Gasto Historial")
+    expenses.delete_expense("Gasto Historial")
 
 
 def test_dead_buttons(logged_user):
