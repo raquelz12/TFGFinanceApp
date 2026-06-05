@@ -63,6 +63,7 @@ include 'includes/header.php';
         <button id="exportCsvBtn" class="button-app" onclick="window.location.href='backend/expenses/export.php'">
             Exportar CSV
         </button>
+        Test
     </section>
     <section class="history-section">
         <?php if (empty($history)): ?>
