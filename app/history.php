@@ -58,7 +58,6 @@ include 'includes/header.php';
             <select name="order" id="order" onchange="this.form.submit()">
                 <option value="desc" <?= $order === 'DESC' ? 'selected' : '' ?>>Más reciente primero</option>
                 <option value="asc" <?= $order === 'ASC' ? 'selected' : '' ?>>Más antiguo primero</option>
-                Ha cambiado
             </select>
         </form>
         <button id="exportCsvBtn" class="button-app" onclick="window.location.href='backend/expenses/export.php'">
