@@ -53,7 +53,7 @@ class ObjectivesPage:
         submit_btn.click()
         
         time.sleep(0.5)
-        self.wait.until(EC.staleness_of(submit_btn))
+        self.wait.until(EC.presence_of_element_located((By.XPATH, f"//*[contains(text(), '{name}')]")))
 
     def edit_objective_target(self, objective_name, new_target):
         xpath_btn = f"//div[contains(@class, 'objective-card') and .//h2[text()='{objective_name}']]//button[@title='Editar']"

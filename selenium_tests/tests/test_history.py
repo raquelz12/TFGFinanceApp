@@ -62,3 +62,10 @@ def test_dead_buttons(logged_user):
             dead_buttons.append(btn_text)
 
     assert len(dead_buttons) == 0, f"Se han detectado botones sin funcionalidad"
+
+def test_export_csv_button_exists(logged_user):
+    page = HistoryPage(logged_user)
+    page.open()
+
+    export_btn = logged_user.find_elements(By.ID, "exportCsvBtn")
+    assert len(export_btn) > 0, "El botón 'Exportar CSV' no existe en la página de historial"
