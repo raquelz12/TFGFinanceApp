@@ -252,7 +252,7 @@ include 'includes/header.php'; ?>
             Ver más gastos
         </button>
         <button type="button">
-            Test
+            Test 1
         </button>
     </section>
 </main>
