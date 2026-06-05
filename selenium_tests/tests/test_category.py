@@ -80,3 +80,5 @@ def test_category_over_budget(logged_user):
     is_over_budget = page.is_category_over_budget(category_name)
     
     assert isinstance(is_over_budget, bool), f"El método is_category_over_budget debería retornar un valor booleano, pero se obtuvo {type(is_over_budget)}"
+
+    page.delete_category(category_name)

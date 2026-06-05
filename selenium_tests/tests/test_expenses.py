@@ -50,6 +50,8 @@ def test_add_expense(logged_user):
     assert page.expense_exists(expense_name), f"No se pudo añadir el gasto."
     assert float(page.get_expense_amount(expense_name)) == 50.50, f"La cantidad del gasto no coincide con el valor ingresado."
 
+    page.delete_expense(expense_name)
+
 def test_edit_expense(logged_user):
     driver = logged_user
     test_category = "Alimentación"
@@ -73,6 +75,8 @@ def test_edit_expense(logged_user):
     assert not page.expense_exists(expense_name), f"No se pudo editar el gasto, el nombre antiguo sigue existiendo."
     assert page.expense_exists(new_expense_name), f"No se pudo editar el gasto."
     assert float(page.get_expense_amount(new_expense_name)) == 20.00, f"La cantidad del gasto editado no es correcta."
+
+    page.delete_expense(new_expense_name)
 
 def test_delete_expense(logged_user):
     driver = logged_user
