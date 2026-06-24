@@ -60,10 +60,6 @@ include 'includes/header.php';
                 <option value="asc" <?= $order === 'ASC' ? 'selected' : '' ?>>Más antiguo primero</option>
             </select>
         </form>
-        <button id="exportCsvBtn" class="button-app" onclick="window.location.href='backend/expenses/export.php'">
-            Exportar CSV
-            Test
-        </button>
     </section>
     <section class="history-section">
         <?php if (empty($history)): ?>
